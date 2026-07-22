@@ -1,0 +1,28 @@
+services:
+
+  # Base de données PostgreSQL
+  postgres:
+    image: postgres:16-alpine
+    container_name: symphonia-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: symphonia
+      POSTGRES_USER: symphonia
+      POSTGRES_PASSWORD: symphonia
+    ports:
+      - "5432:5432"
+    volumes:
+      - symphonia_pg_data:/var/lib/postgresql/data
+      - ./database/init.sql:/docker-entrypoint-initdb.d/init.sql
+
+  # Serveur mail de test (pour voir les emails envoyés par le backend)
+  mailpit:
+    image: axllent/mailpit:latest
+    container_name: symphonia-mailpit
+    restart: unless-stopped
+    ports:
+      - "1025:1025" # SMTP
+      - "8025:8025" # Interface web
+
+volumes:
+  symphonia_pg_data:
