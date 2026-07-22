@@ -38,7 +38,7 @@ export default function Header({ connecte = false }) {
       <div className={styles.groupeGauche}>
         <Link href={connecte ? "/tableau-de-bord" : "/"} className={styles.marque}>
           <Logo taille={32} />
-          Symphonia
+          Symphonia by AD et Maxii
         </Link>
 
         {connecte && (

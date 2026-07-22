@@ -82,7 +82,7 @@ export default function TableauDeBord() {
         {/* Accueil personnalisé */}
         <div className={styles.zoneAccueil}>
           {/* TODO: remplacer "Claire" par le prénom réel de l'utilisateur connecté */}
-          <h1 className={styles.salutation}>Bonjour Claire 👋</h1>
+          <h1 className={styles.salutation}>Bonjour Claire !</h1>
           <p className={styles.sousTitreAccueil}>Voici vos ensembles et les derniers ajouts.</p>
         </div>
 
