@@ -4,10 +4,16 @@
   margin-bottom: 16px;
 }
 
+.ligneEtiquette {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 7px;
+}
+
 .etiquette {
   font-size: 13px;
   font-weight: 600;
-  margin-bottom: 7px;
 }
 
 .saisie {

@@ -1,0 +1,107 @@
+.page {
+  background: var(--cream);
+  padding: 44px 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 70vh;
+}
+
+.conteneur {
+  width: 100%;
+  max-width: 420px;
+}
+
+/* ===== En-tête (logo, titre, sous-titre) ===== */
+
+.enTete {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.titre {
+  font-size: 24px;
+  margin: 14px 0 6px;
+}
+
+.sousTitre {
+  margin: 0;
+  font-size: 14px;
+  color: var(--ink-soft);
+}
+
+/* ===== Carte du formulaire ===== */
+
+.carte {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  box-shadow: var(--sh);
+  padding: 24px;
+}
+
+.lienOublie {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.lienOublie:hover {
+  color: var(--ink-soft);
+}
+
+/* ===== Bas de page ===== */
+
+.pasDeCompte {
+  text-align: center;
+  margin: 20px 0 0;
+  font-size: 14px;
+  color: var(--ink-soft);
+}
+
+.lienInscription {
+  font-weight: 700;
+  color: var(--ink-soft);
+}
+
+.lienInscription:hover {
+  color: var(--ink);
+}
+
+/* ===== Tablette (601-1024px) ===== */
+@media (min-width: 601px) {
+  .page {
+    padding: 56px;
+  }
+}
+
+/* ===== Bureau (1025px et plus) ===== */
+@media (min-width: 1025px) {
+  .enTete {
+    margin-bottom: 26px;
+  }
+
+  .titre {
+    font-size: 28px;
+  }
+
+  .sousTitre {
+    font-size: 15px;
+  }
+
+  .carte {
+    padding: 32px;
+  }
+
+  .lienOublie {
+    font-size: 13px;
+  }
+
+  .pasDeCompte {
+    margin-top: 22px;
+    font-size: 15px;
+  }
+}
