@@ -17,17 +17,17 @@ const LIBELLES = {
   tous: "Tous",
 };
 
-// Badge coloré indiquant le pupitre / la voix concernée
-export default function BadgeInstrument({ pupitre }) {
+// Badge coloré indiquant le pupitre / la voix concernée.
+// "avecPoint" affiche la petite pastille de couleur (utile dans les listes de pupitres).
+// "petite" réduit la taille (utile dans les cartes d'ensemble, plus denses).
+export default function BadgeInstrument({ pupitre, avecPoint = true, petite = false }) {
   const couleurs = COULEURS[pupitre] ?? COULEURS.tous;
   const libelle = LIBELLES[pupitre] ?? pupitre;
+  const classes = `${styles.badge} ${petite ? styles.petite : ""}`;
 
   return (
-    <span
-      className={styles.badge}
-      style={{ background: couleurs.fond, color: couleurs.texte }}
-    >
-      <span className={styles.point} style={{ background: couleurs.point }} />
+    <span className={classes} style={{ background: couleurs.fond, color: couleurs.texte }}>
+      {avecPoint && <span className={styles.point} style={{ background: couleurs.point }} />}
       {libelle}
     </span>
   );

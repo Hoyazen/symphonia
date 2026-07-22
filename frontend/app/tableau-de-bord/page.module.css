@@ -1,0 +1,292 @@
+/* ===== Zone d'accueil personnalisé ===== */
+
+.zoneAccueil {
+  background: var(--cream);
+  padding: 24px 18px;
+}
+
+.salutation {
+  font-size: 24px;
+  margin: 0 0 4px;
+}
+
+.sousTitreAccueil {
+  margin: 0;
+  font-size: 14px;
+  color: var(--ink-soft);
+}
+
+/* ===== Zone de contenu (ensembles + ajouts récents) ===== */
+
+.zoneContenu {
+  background: var(--paper);
+  padding: 20px 18px 40px;
+}
+
+.grillePrincipale {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.enTeteSection {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.titreSection {
+  font-size: 17px;
+  margin: 0;
+}
+
+/* Le bouton "Créer un ensemble" prend toute la largeur sur mobile */
+.boutonCreer a,
+.boutonCreer button {
+  width: 100%;
+}
+
+/* ===== Grille des ensembles ===== */
+
+.ensemblesGrille {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+}
+
+.carteEnsemble {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  box-shadow: var(--sh);
+  overflow: hidden;
+  cursor: pointer;
+  transition: box-shadow 0.15s, transform 0.15s;
+}
+
+.carteEnsemble:hover {
+  box-shadow: var(--sh-lg);
+  transform: translateY(-2px);
+}
+
+.carteBarre {
+  height: 7px;
+}
+
+.carteCorps {
+  padding: 17px;
+}
+
+.carteNom {
+  font-size: 17px;
+  margin: 0 0 3px;
+}
+
+.carteMeta {
+  font-size: 12.5px;
+  color: var(--ink-faint);
+  margin-bottom: 11px;
+}
+
+.carteBadges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+/* Carte "Nouvel ensemble" en pointillés, à la fin de la grille */
+.carteVide {
+  border: 2px dashed var(--line);
+  border-radius: var(--r);
+  background: var(--cream);
+  font-family: inherit;
+  cursor: pointer;
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: var(--ink-soft);
+  min-height: 150px;
+  text-align: center;
+}
+
+.carteVide:hover {
+  border-color: var(--yellow);
+  background: var(--yellow-tint);
+  color: var(--ink);
+}
+
+.carteVideIcone {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  background: var(--yellow);
+  color: var(--ink);
+}
+
+.carteVideTitre {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.carteVideTexte {
+  font-size: 13px;
+  max-width: 22ch;
+}
+
+/* ===== État encourageant (aucun ensemble) ===== */
+
+.etatVide {
+  border: 2px dashed var(--line);
+  border-radius: var(--r);
+  background: var(--cream);
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 10px;
+}
+
+.etatVideIcone {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 999px;
+  background: var(--yellow-soft);
+  color: #8a5f00;
+  margin-bottom: 4px;
+}
+
+.etatVideTitre {
+  font-size: 17px;
+  margin: 0;
+}
+
+.etatVideTexte {
+  margin: 0 0 8px;
+  font-size: 14px;
+  color: var(--ink-soft);
+  max-width: 36ch;
+}
+
+/* ===== Ajouts récents (colonne latérale) ===== */
+
+.aside {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  box-shadow: var(--sh);
+  padding: 22px;
+}
+
+.asideTitre {
+  margin: 0 0 16px;
+  font-size: 17px;
+}
+
+.asideListe {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.asideItem {
+  display: flex;
+  gap: 12px;
+  padding: 10px;
+  border-radius: 12px;
+}
+
+.asideItem:hover {
+  background: var(--cream);
+}
+
+.asideIcone {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  flex: none;
+  border-radius: 10px;
+}
+
+.asideItemTitre {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.asideItemMeta {
+  font-size: 12px;
+  color: var(--ink-faint);
+}
+
+/* ===== Tablette (601-1024px) ===== */
+@media (min-width: 601px) {
+  .zoneAccueil {
+    padding: 32px 32px 0;
+  }
+
+  .zoneContenu {
+    padding: 24px 32px 40px;
+  }
+
+  .boutonCreer a,
+  .boutonCreer button {
+    width: auto;
+  }
+
+  .ensemblesGrille {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+  }
+}
+
+/* ===== Bureau (1025px et plus) ===== */
+@media (min-width: 1025px) {
+  .zoneAccueil {
+    padding: 40px 32px 32px;
+  }
+
+  .salutation {
+    font-size: 30px;
+  }
+
+  .sousTitreAccueil {
+    font-size: 16px;
+  }
+
+  .zoneContenu {
+    padding: 0 32px 40px;
+  }
+
+  .titreSection {
+    font-size: 19px;
+  }
+
+  .grillePrincipale {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 28px;
+    align-items: start;
+  }
+
+  .carteNom {
+    font-size: 18px;
+  }
+
+  .carteMeta {
+    font-size: 13px;
+  }
+}

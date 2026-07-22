@@ -8,6 +8,18 @@
   background: var(--paper);
 }
 
+.groupeGauche {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.droite {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
 .marque {
   display: flex;
   align-items: center;
@@ -15,6 +27,83 @@
   font-size: 17px;
   font-weight: 800;
   letter-spacing: -0.03em;
+}
+
+/* Navigation "Tableau de bord" / "Mes morceaux" (en-tête connecté), cachée sur mobile */
+.navConnecte {
+  display: none;
+  align-items: center;
+  gap: 6px;
+}
+
+.lienNav,
+.lienNavActif {
+  padding: 8px 14px;
+  border-radius: 10px;
+  font-size: 15px;
+}
+
+.lienNav {
+  font-weight: 600;
+  color: var(--ink-soft);
+}
+
+.lienNav:hover {
+  background: var(--line-soft);
+  color: var(--ink);
+}
+
+.lienNavActif {
+  font-weight: 700;
+  color: var(--ink);
+  background: var(--yellow-soft);
+}
+
+/* Bouton profil (en-tête connecté), caché sur mobile au profit de l'avatar seul */
+.profil {
+  display: none;
+  align-items: center;
+  gap: 9px;
+  padding: 6px 8px 6px 6px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--paper);
+  font-family: inherit;
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.profil:hover {
+  border-color: var(--yellow);
+}
+
+.avatar,
+.avatarMobile {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: var(--yellow-soft);
+  color: var(--ink);
+  font-weight: 700;
+  flex: none;
+}
+
+.avatar {
+  width: 34px;
+  height: 34px;
+  font-size: 13px;
+}
+
+.avatarMobile {
+  width: 34px;
+  height: 34px;
+  font-size: 12px;
+}
+
+.nomUtilisateur {
+  font-size: 14px;
+  font-weight: 600;
 }
 
 /* Actions "Se connecter" / "S'inscrire" : cachées sur mobile, remplacées par le menu burger */
@@ -95,6 +184,18 @@
 
   .actions {
     display: flex;
+  }
+
+  .navConnecte {
+    display: flex;
+  }
+
+  .profil {
+    display: flex;
+  }
+
+  .avatarMobile {
+    display: none;
   }
 
   .btnMenu {
