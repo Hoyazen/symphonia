@@ -1,0 +1,34 @@
+.champ {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+}
+
+.etiquette {
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 7px;
+}
+
+.saisie {
+  width: 100%;
+  padding: 13px 15px;
+  border: 1.5px solid var(--line);
+  border-radius: 12px;
+  background: var(--paper);
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--ink);
+  font-family: inherit;
+}
+
+.saisie:focus {
+  outline: none;
+  border-color: var(--yellow);
+}
+
+.erreur {
+  margin: 6px 0 0;
+  font-size: 13px;
+  color: var(--doc-pdf);
+}

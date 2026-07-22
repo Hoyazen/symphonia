@@ -1,0 +1,54 @@
+.bouton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 20px;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  white-space: nowrap;
+}
+
+.primaire {
+  background: var(--yellow);
+  color: var(--ink);
+}
+
+.primaire:hover {
+  background: color-mix(in srgb, var(--yellow) 86%, black);
+}
+
+.secondaire {
+  background: var(--paper);
+  color: var(--ink);
+  border: 1.5px solid var(--line);
+}
+
+.secondaire:hover {
+  border-color: var(--yellow);
+  background: var(--yellow-tint);
+}
+
+.ghost {
+  background: transparent;
+  color: var(--ink-soft);
+  padding: 10px 12px;
+}
+
+.ghost:hover {
+  background: var(--line-soft);
+  color: var(--ink);
+}
+
+.pleineLargeur {
+  width: 100%;
+}
+
+.bouton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
