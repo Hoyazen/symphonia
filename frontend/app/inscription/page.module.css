@@ -1,0 +1,339 @@
+.page {
+  background: var(--cream);
+  padding: 32px 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.conteneur {
+  width: 100%;
+  max-width: 520px;
+}
+
+/* ===== En-tête (logo, titre, sous-titre) ===== */
+
+.enTete {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.titre {
+  font-size: 23px;
+  margin: 12px 0 5px;
+}
+
+.sousTitre {
+  margin: 0;
+  font-size: 13px;
+  color: var(--ink-soft);
+}
+
+/* ===== Carte du formulaire ===== */
+
+.carte {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  box-shadow: var(--sh);
+  padding: 22px;
+}
+
+/* Ligne "photo de profil" */
+.photoLigne {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.photoAvatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  flex: none;
+  border-radius: 999px;
+  border: 2px dashed var(--line);
+  background: var(--cream);
+  color: var(--ink-faint);
+  margin-bottom: 9px;
+}
+
+.photoTexte {
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 3px;
+  text-align: center;
+}
+
+.photoOptionnel {
+  color: var(--ink-faint);
+  font-weight: 500;
+}
+
+.photoBouton {
+  padding: 7px 13px;
+  background: var(--paper);
+  border: 1.5px solid var(--line);
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: 600;
+  font-family: inherit;
+  color: var(--ink);
+  cursor: pointer;
+}
+
+.photoBouton:hover {
+  border-color: var(--yellow);
+  background: var(--yellow-tint);
+}
+
+/* Grille à 2 colonnes (Prénom/Nom, Mot de passe/Confirmation) */
+.grille2 {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+}
+
+/* Sur mobile, la maquette ne montre pas le champ de confirmation */
+.confirmationChamp {
+  display: none;
+}
+
+/* ===== Règles du mot de passe ===== */
+
+.reglesBoite {
+  margin: 12px 0 16px;
+  padding: 12px 14px;
+  background: var(--cream);
+  border-radius: 12px;
+}
+
+.reglesTitre {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--ink-soft);
+  margin-bottom: 10px;
+}
+
+.reglesListe {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.regleValide,
+.regleAttente {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12.5px;
+  font-weight: 600;
+}
+
+.regleValide {
+  color: var(--ten);
+}
+
+.regleAttente {
+  color: var(--ink-faint);
+}
+
+.regleRond {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  flex: none;
+  border-radius: 999px;
+}
+
+.regleValide .regleRond {
+  background: var(--ten);
+  color: #fff;
+}
+
+.regleAttente .regleRond {
+  border: 1.5px solid var(--ink-faint);
+}
+
+/* ===== Case CGU ===== */
+
+.cguLigne {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 18px;
+  cursor: pointer;
+}
+
+/* Case native cachée visuellement, mais toujours utilisable/accessible */
+.cguInput {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 22px;
+  height: 22px;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.cguCoche {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  flex: none;
+  border-radius: 7px;
+  background: var(--paper);
+  border: 1.5px solid var(--line);
+  color: transparent;
+}
+
+.cguInput:checked + .cguCoche {
+  background: var(--yellow);
+  border-color: var(--yellow);
+  color: var(--ink);
+}
+
+.cguInput:focus-visible + .cguCoche {
+  outline: 2px solid var(--yellow);
+  outline-offset: 2px;
+}
+
+.cguTexte {
+  font-size: 13px;
+  line-height: 1.4;
+  color: var(--ink-soft);
+}
+
+.cguLien {
+  font-weight: 700;
+  color: var(--ink-soft);
+}
+
+.cguLien:hover {
+  color: var(--ink);
+}
+
+/* ===== Bas de page ===== */
+
+.mentionEmail {
+  text-align: center;
+  margin: 12px 0 0;
+  font-size: 12px;
+  color: var(--ink-faint);
+}
+
+.dejaInscrit {
+  text-align: center;
+  margin: 20px 0 0;
+  font-size: 14px;
+  color: var(--ink-soft);
+}
+
+.dejaInscritLien {
+  font-weight: 700;
+  color: var(--ink-soft);
+}
+
+.dejaInscritLien:hover {
+  color: var(--ink);
+}
+
+/* ===== Tablette (601-1024px) ===== */
+@media (min-width: 601px) {
+  .page {
+    padding: 48px 24px;
+  }
+
+  .grille2 {
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+
+  .confirmationChamp {
+    display: block;
+  }
+
+  .reglesBoite {
+    padding: 14px 16px;
+  }
+
+  .regleValide,
+  .regleAttente {
+    font-size: 13px;
+    gap: 9px;
+  }
+
+  .regleRond {
+    width: 18px;
+    height: 18px;
+  }
+
+  .cguLigne {
+    gap: 11px;
+  }
+
+  .cguTexte {
+    font-size: 14px;
+  }
+}
+
+/* ===== Bureau (1025px et plus) ===== */
+@media (min-width: 1025px) {
+  .page {
+    padding: 52px;
+  }
+
+  .enTete {
+    margin-bottom: 24px;
+  }
+
+  .titre {
+    font-size: 28px;
+  }
+
+  .sousTitre {
+    font-size: 15px;
+  }
+
+  .carte {
+    padding: 32px;
+  }
+
+  .photoLigne {
+    flex-direction: row;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 22px;
+  }
+
+  .photoAvatar {
+    width: 66px;
+    height: 66px;
+    margin-bottom: 0;
+  }
+
+  .photoTexte {
+    text-align: left;
+  }
+
+  .photoBouton {
+    padding: 8px 14px;
+    font-size: 13px;
+  }
+
+  .reglesBoite {
+    margin: 16px 0 20px;
+  }
+
+  .cguLigne {
+    margin-bottom: 22px;
+  }
+}

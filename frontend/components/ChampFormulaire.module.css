@@ -12,7 +12,7 @@
 
 .saisie {
   width: 100%;
-  padding: 13px 15px;
+  padding: 12px 14px;
   border: 1.5px solid var(--line);
   border-radius: 12px;
   background: var(--paper);
@@ -20,6 +20,11 @@
   font-weight: 500;
   color: var(--ink);
   font-family: inherit;
+}
+
+.saisie::placeholder {
+  color: var(--ink-faint);
+  opacity: 1;
 }
 
 .saisie:focus {
