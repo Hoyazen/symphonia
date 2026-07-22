@@ -2,6 +2,9 @@
 CLAUDE.md
 .claude/
 
+# Maquette de référence (locale uniquement, jamais dans Git)
+design/
+
 # Node / Next.js
 node_modules/
 .next/
