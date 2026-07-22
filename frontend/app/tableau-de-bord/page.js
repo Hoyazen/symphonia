@@ -1,4 +1,5 @@
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import Bouton from "@/components/Bouton";
 import BadgeInstrument from "@/components/BadgeInstrument";
 import styles from "./page.module.css";
@@ -172,6 +173,7 @@ export default function TableauDeBord() {
           </div>
         </div>
       </main>
+      <Footer />
     </>
   );
 }
