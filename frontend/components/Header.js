@@ -22,6 +22,14 @@ export default function Header({ connecte = false }) {
   const [menuOuvert, setMenuOuvert] = useState(false);
   const pathname = usePathname();
 
+  // "Mes morceaux" reste actif aussi sur une fiche morceau (/morceaux/[id])
+  function estActif(href) {
+    if (href === "/mes-morceaux") {
+      return pathname === href || pathname.startsWith("/morceaux/");
+    }
+    return pathname === href;
+  }
+
   return (
     <header className={styles.header}>
       <div className={styles.groupeGauche}>
@@ -36,7 +44,7 @@ export default function Header({ connecte = false }) {
               <Link
                 key={lien.href}
                 href={lien.href}
-                className={pathname === lien.href ? styles.lienNavActif : styles.lienNav}
+                className={estActif(lien.href) ? styles.lienNavActif : styles.lienNav}
               >
                 {lien.label}
               </Link>
@@ -88,7 +96,7 @@ export default function Header({ connecte = false }) {
               <Link
                 key={lien.href}
                 href={lien.href}
-                className={pathname === lien.href ? styles.lienNavActif : styles.lienNav}
+                className={estActif(lien.href) ? styles.lienNavActif : styles.lienNav}
                 onClick={() => setMenuOuvert(false)}
               >
                 {lien.label}

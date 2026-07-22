@@ -1,0 +1,523 @@
+.contenu {
+  padding: 22px 18px 40px;
+}
+
+.retour {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink-soft);
+  margin-bottom: 18px;
+}
+
+.retour:hover {
+  color: var(--ink);
+}
+
+/* ===== En-tête du morceau ===== */
+
+.hero {
+  background: linear-gradient(135deg, var(--yellow-tint), var(--cream));
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 22px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.heroTexte {
+  flex: 1;
+  min-width: 240px;
+}
+
+.heroLigneHaut {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+
+.heroGenre {
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-size: 11.5px;
+  font-weight: 700;
+}
+
+.heroEnsemble {
+  font-size: 13px;
+  color: var(--ink-faint);
+}
+
+.heroTitre {
+  font-size: 25px;
+  margin: 0 0 4px;
+}
+
+.heroCompositeur {
+  margin: 0 0 12px;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--ink-soft);
+}
+
+.heroDescription {
+  margin: 0;
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: var(--ink-soft);
+  max-width: 64ch;
+}
+
+/* Le bouton "Ajouter un document" prend toute la largeur sur mobile */
+.boutonAjouter a,
+.boutonAjouter button {
+  width: 100%;
+}
+
+/* ===== Groupes de documents par pupitre ===== */
+
+.grillePrincipale {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.groupe {
+  margin-bottom: 22px;
+}
+
+.groupe:last-child {
+  margin-bottom: 0;
+}
+
+.groupeEnTete {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 11px;
+}
+
+.groupePoint {
+  width: 9px;
+  height: 9px;
+  border-radius: 999px;
+  flex: none;
+}
+
+.groupeTitre {
+  font-size: 15px;
+  margin: 0;
+}
+
+.groupeCompte {
+  font-size: 13px;
+  color: var(--ink-faint);
+}
+
+.groupeListe {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* ===== Document simple (PDF, image, audio sans lecteur) ===== */
+
+.document {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 13px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 13px;
+}
+
+.document:hover {
+  border-color: var(--yellow);
+}
+
+.documentIcone {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  flex: none;
+  border-radius: 10px;
+}
+
+.documentTexte {
+  flex: 1;
+  min-width: 0;
+}
+
+.documentNom {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.documentMeta {
+  font-size: 11.5px;
+  color: var(--ink-faint);
+}
+
+.documentSupprimer,
+.documentSupprimerVideo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  flex: none;
+  border: none;
+  background: transparent;
+  border-radius: 9px;
+  color: var(--ink-faint);
+  cursor: pointer;
+}
+
+.documentSupprimer:hover,
+.documentSupprimerVideo:hover {
+  background: var(--doc-pdf-bg);
+  color: var(--doc-pdf);
+}
+
+/* ===== Lecteur audio complet ===== */
+
+.lecteurAudio {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 13px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 13px;
+}
+
+.lecteurBouton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  flex: none;
+  border-radius: 999px;
+  background: var(--yellow);
+  color: var(--ink);
+  border: none;
+  cursor: pointer;
+}
+
+.lecteurInfos {
+  flex: 1;
+  min-width: 0;
+}
+
+.lecteurLigneHaut {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.lecteurNom {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.lecteurTemps {
+  font-size: 11.5px;
+  color: var(--ink-faint);
+  flex: none;
+}
+
+.lecteurBarre {
+  height: 5px;
+  border-radius: 999px;
+  background: #eee6d6;
+  overflow: hidden;
+}
+
+.lecteurBarreRemplie {
+  width: 38%;
+  height: 100%;
+  background: var(--yellow);
+}
+
+/* Petit égaliseur décoratif, animé seulement pendant la lecture */
+.equaliseur {
+  display: none;
+  align-items: flex-end;
+  gap: 3px;
+  height: 18px;
+  flex: none;
+}
+
+.equaliseur span {
+  width: 3px;
+  border-radius: 2px;
+  background: var(--yellow);
+  height: 6px;
+}
+
+.equaliseurActif span {
+  animation: equaliseur 0.9s ease-in-out infinite;
+}
+
+.equaliseurActif span:nth-child(2) {
+  animation-delay: 0.15s;
+}
+
+.equaliseurActif span:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.equaliseurActif span:nth-child(4) {
+  animation-delay: 0.45s;
+}
+
+@keyframes equaliseur {
+  0%, 100% { height: 5px; }
+  50% { height: 15px; }
+}
+
+/* ===== Lecteur vidéo (YouTube) ===== */
+
+.video {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 13px;
+  overflow: hidden;
+}
+
+.videoApercu {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  background: radial-gradient(circle at 50% 45%, #403a33, #1a1714);
+}
+
+.videoJouer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 54px;
+  height: 38px;
+  border-radius: 11px;
+  background: #e0271b;
+  color: #fff;
+}
+
+.videoLegende {
+  position: absolute;
+  left: 14px;
+  bottom: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  text-align: left;
+  color: #fff;
+}
+
+.videoLabel {
+  font-size: 11px;
+  font-weight: 600;
+  opacity: 0.7;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.videoTitre {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.videoCadre {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+}
+
+.videoCadre iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.videoBas {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 10px 13px;
+}
+
+.videoBadge {
+  padding: 3px 9px;
+  border-radius: 8px;
+  background: var(--doc-youtube-bg);
+  color: var(--doc-youtube);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.videoMeta {
+  font-size: 11.5px;
+  color: var(--ink-faint);
+}
+
+.documentSupprimerVideo {
+  margin-left: auto;
+  width: 32px;
+  height: 32px;
+}
+
+/* ===== Colonne latérale ===== */
+
+.asideCarte {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  box-shadow: var(--sh);
+  padding: 22px;
+  margin-bottom: 16px;
+}
+
+.asideTitre {
+  margin: 0 0 14px;
+  font-size: 15px;
+}
+
+.asideListe {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.asideLigne {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.asideLigneTotal {
+  border-top: 1px solid var(--line-soft);
+  padding-top: 10px;
+}
+
+.asideLibelle {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.asidePoint {
+  width: 9px;
+  height: 9px;
+  border-radius: 999px;
+  flex: none;
+}
+
+.asideCompte {
+  font-size: 13px;
+  color: var(--ink-faint);
+}
+
+.astuce {
+  background: var(--yellow-tint);
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  padding: 20px;
+}
+
+.astuceTitre {
+  font-size: 13px;
+  font-weight: 700;
+  color: #8a5f00;
+  margin-bottom: 5px;
+}
+
+.astuceTexte {
+  margin: 0;
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: var(--ink-soft);
+}
+
+/* ===== Tablette (601-1024px) ===== */
+@media (min-width: 601px) {
+  .contenu {
+    padding: 28px 32px;
+  }
+
+  .hero {
+    padding: 26px 28px;
+    border-radius: 18px;
+  }
+
+  .boutonAjouter a,
+  .boutonAjouter button {
+    width: auto;
+  }
+
+  .equaliseur {
+    display: flex;
+  }
+}
+
+/* ===== Bureau (1025px et plus) ===== */
+@media (min-width: 1025px) {
+  .contenu {
+    padding: 28px 32px 44px;
+  }
+
+  .hero {
+    padding: 30px 32px;
+    border-radius: 20px;
+    margin-bottom: 28px;
+  }
+
+  .heroTitre {
+    font-size: 34px;
+  }
+
+  .heroCompositeur {
+    font-size: 17px;
+  }
+
+  .heroDescription {
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  .grillePrincipale {
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: 28px;
+    align-items: start;
+  }
+
+  .aside {
+    position: sticky;
+    top: 20px;
+  }
+}
