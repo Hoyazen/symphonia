@@ -19,7 +19,8 @@ backend/target/
 backend/.env
 
 # Fichiers uploadés (contenu local, pas versionné)
-backend/uploads/
+backend/uploads/*
+!backend/uploads/.gitkeep
 
 # IDE / OS
 .idea/
