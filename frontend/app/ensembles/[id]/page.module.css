@@ -1,0 +1,457 @@
+.contenu {
+  padding: 22px 18px 40px;
+}
+
+.retour {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--ink-soft);
+  margin-bottom: 18px;
+}
+
+.retour:hover {
+  color: var(--ink);
+}
+
+/* ===== En-tête de l'ensemble ===== */
+
+.hero {
+  background: linear-gradient(135deg, var(--yellow-tint), var(--cream));
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 24px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.heroTexte {
+  flex: 1;
+  min-width: 240px;
+}
+
+.heroKicker {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--ink-faint);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 6px;
+}
+
+.heroTitre {
+  font-size: 25px;
+  margin: 0 0 10px;
+}
+
+.heroMeta {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+
+.heroMetaItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink-soft);
+}
+
+.heroBadges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+/* Aperçu des avatars des membres : caché en dessous du bureau (pas assez de place) */
+.avatarsApercu {
+  display: none;
+}
+
+/* ===== Section "Morceaux de l'ensemble" ===== */
+
+.sectionMorceaux {
+  margin-bottom: 26px;
+}
+
+.enTeteSection {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.titreSection {
+  font-size: 18px;
+  margin: 0 0 3px;
+}
+
+.sousTitreSection {
+  margin: 0;
+  font-size: 14px;
+  color: var(--ink-soft);
+}
+
+.boutonNouveau a,
+.boutonNouveau button {
+  width: 100%;
+}
+
+.grilleMorceaux {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+}
+
+/* ===== Carte "Gestion des membres" ===== */
+
+.carteAdmin {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  box-shadow: var(--sh);
+  overflow: hidden;
+}
+
+.adminEnTete {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 18px 20px;
+  border-bottom: 1px solid var(--line);
+  background: var(--cream);
+}
+
+.badgeAdmin {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 11px;
+  border-radius: 999px;
+  background: var(--ink);
+  color: #fff;
+  font-size: 11.5px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.adminCorps {
+  padding: 20px;
+}
+
+/* Inviter un membre */
+.inviter {
+  margin-bottom: 24px;
+}
+
+.inviterLabel {
+  margin: 0 0 9px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.inviterLigne {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.inviterChamp {
+  flex: 1;
+}
+
+/* Le champ email n'a pas besoin de la marge basse par défaut ici */
+.inviterChamp > div {
+  margin-bottom: 0;
+}
+
+.inviterChoix {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 11px 14px;
+  border: 1.5px solid var(--line);
+  border-radius: 12px;
+  background: var(--paper);
+  font-family: inherit;
+  font-size: 14px;
+  color: var(--ink-soft);
+  cursor: pointer;
+}
+
+.inviterChoix svg:first-child {
+  flex: none;
+}
+
+.inviterChoix svg:last-child {
+  margin-left: auto;
+  flex: none;
+  color: var(--ink-faint);
+}
+
+.colonnes {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.sousEnTete {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.sousTitre {
+  margin: 0;
+  font-size: 15px;
+}
+
+.compte {
+  font-size: 13px;
+  color: var(--ink-faint);
+}
+
+.liste {
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+/* Membres */
+.ligneMembre {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 13px 16px;
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.ligneMembre:last-child {
+  border-bottom: none;
+}
+
+.avatarMembre {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  flex: none;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 12.5px;
+}
+
+.infosMembre {
+  flex: 1;
+  min-width: 0;
+}
+
+.nomMembre {
+  font-size: 14.5px;
+  font-weight: 700;
+}
+
+.pupitreMembre {
+  font-size: 12.5px;
+  color: var(--ink-faint);
+}
+
+.roleAdmin,
+.roleMembre {
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 11.5px;
+  font-weight: 700;
+  flex: none;
+}
+
+.roleAdmin {
+  background: var(--yellow-soft);
+  color: #8a5f00;
+}
+
+.roleMembre {
+  background: var(--line-soft);
+  color: var(--ink-soft);
+  font-weight: 600;
+}
+
+/* Invitations */
+.ligneInvitation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 13px 16px;
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.ligneInvitation:last-child {
+  border-bottom: none;
+}
+
+.infosInvitation {
+  min-width: 0;
+}
+
+.emailInvitation {
+  font-size: 13.5px;
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.dateInvitation {
+  font-size: 11.5px;
+  color: var(--ink-faint);
+}
+
+.statutEnAttente,
+.statutAcceptee {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  flex: none;
+}
+
+.statutEnAttente {
+  background: var(--yellow-soft);
+  color: #8a5f00;
+}
+
+.pointStatut {
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--yellow);
+}
+
+.statutAcceptee {
+  background: var(--ten-bg);
+  color: var(--ten);
+}
+
+/* ===== Tablette (601-1024px) ===== */
+@media (min-width: 601px) {
+  .contenu {
+    padding: 28px 32px;
+  }
+
+  .hero {
+    padding: 26px 28px;
+    border-radius: 18px;
+  }
+
+  .boutonNouveau a,
+  .boutonNouveau button {
+    width: auto;
+  }
+
+  .grilleMorceaux {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+  }
+
+  .inviterLigne {
+    flex-direction: row;
+    align-items: stretch;
+    flex-wrap: wrap;
+  }
+
+  .inviterChamp {
+    min-width: 240px;
+  }
+
+  .inviterChoix {
+    min-width: 220px;
+  }
+}
+
+/* ===== Bureau (1025px et plus) ===== */
+@media (min-width: 1025px) {
+  .contenu {
+    padding: 28px 32px 44px;
+  }
+
+  .hero {
+    padding: 30px 32px;
+    border-radius: 20px;
+    margin-bottom: 32px;
+  }
+
+  .heroTitre {
+    font-size: 34px;
+  }
+
+  .heroMeta {
+    flex-direction: row;
+    gap: 18px;
+  }
+
+  .avatarsApercu {
+    display: flex;
+    align-items: center;
+    flex: none;
+  }
+
+  .avatarApercu,
+  .avatarApercuPlus {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 999px;
+    font-weight: 700;
+    font-size: 14px;
+    border: 2px solid var(--paper);
+  }
+
+  .avatarApercu:not(:first-child),
+  .avatarApercuPlus {
+    margin-left: -12px;
+  }
+
+  .avatarApercuPlus {
+    background: var(--ink);
+    color: #fff;
+    font-size: 13px;
+  }
+
+  .grilleMorceaux {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .adminCorps {
+    padding: 26px;
+  }
+
+  .adminEnTete {
+    padding: 22px 26px;
+  }
+
+  .colonnes {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 26px;
+  }
+}

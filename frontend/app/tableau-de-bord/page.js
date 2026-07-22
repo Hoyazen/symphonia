@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Bouton from "@/components/Bouton";
@@ -100,8 +101,7 @@ export default function TableauDeBord() {
               {ENSEMBLES.length > 0 ? (
                 <div className={styles.ensemblesGrille}>
                   {ENSEMBLES.map((ensemble) => (
-                    // TODO: naviguer vers la fiche de l'ensemble (page pas encore créée)
-                    <div key={ensemble.id} className={styles.carteEnsemble}>
+                    <Link key={ensemble.id} href={`/ensembles/${ensemble.id}`} className={styles.carteEnsemble}>
                       <div
                         className={styles.carteBarre}
                         style={{ background: `linear-gradient(90deg, ${ensemble.degrade.join(", ")})` }}
@@ -117,7 +117,7 @@ export default function TableauDeBord() {
                           ))}
                         </div>
                       </div>
-                    </div>
+                    </Link>
                   ))}
 
                   {/* TODO: ouvrir le formulaire de création d'ensemble */}

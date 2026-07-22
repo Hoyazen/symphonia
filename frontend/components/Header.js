@@ -22,10 +22,13 @@ export default function Header({ connecte = false }) {
   const [menuOuvert, setMenuOuvert] = useState(false);
   const pathname = usePathname();
 
-  // "Mes morceaux" reste actif aussi sur une fiche morceau (/morceaux/[id])
+  // "Mes morceaux" reste actif sur une fiche morceau, "Tableau de bord" sur une fiche ensemble
   function estActif(href) {
     if (href === "/mes-morceaux") {
       return pathname === href || pathname.startsWith("/morceaux/");
+    }
+    if (href === "/tableau-de-bord") {
+      return pathname === href || pathname.startsWith("/ensembles/");
     }
     return pathname === href;
   }

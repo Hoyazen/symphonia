@@ -58,11 +58,14 @@
 }
 
 .carteEnsemble {
+  display: block;
   background: var(--paper);
   border: 1px solid var(--line);
   border-radius: var(--r);
   box-shadow: var(--sh);
   overflow: hidden;
+  color: inherit;
+  text-decoration: none;
   cursor: pointer;
   transition: box-shadow 0.15s, transform 0.15s;
 }
