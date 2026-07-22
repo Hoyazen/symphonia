@@ -1,0 +1,29 @@
+# IA
+CLAUDE.md
+.claude/
+
+# Node / Next.js
+node_modules/
+.next/
+frontend/.env
+frontend/.env.local
+npm-debug.log*
+
+# Java / Maven
+backend/target/
+*.class
+
+# Env et secrets
+.env
+.env.local
+backend/.env
+
+# Fichiers uploadés (contenu local, pas versionné)
+backend/uploads/
+
+# IDE / OS
+.idea/
+.vscode/
+*.iml
+.DS_Store
+Thumbs.db
