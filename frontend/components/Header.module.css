@@ -1,8 +1,9 @@
 .header {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 18px 24px;
+  padding: 15px 18px;
   border-bottom: 1px solid var(--line);
   background: var(--paper);
 }
@@ -10,41 +11,93 @@
 .marque {
   display: flex;
   align-items: center;
-  gap: 11px;
-  font-size: 20px;
+  gap: 9px;
+  font-size: 17px;
   font-weight: 800;
   letter-spacing: -0.03em;
 }
 
-.nav {
+/* Actions "Se connecter" / "S'inscrire" : cachées sur mobile, remplacées par le menu burger */
+.actions {
   display: none;
   align-items: center;
-  gap: 24px;
+  gap: 12px;
 }
 
-.lien {
+.btnConnexion {
+  padding: 10px 18px;
+  background: transparent;
+  color: var(--ink);
+  border-radius: 10px;
   font-size: 15px;
   font-weight: 600;
-  color: var(--ink-soft);
 }
 
-.lien:hover {
+.btnConnexion:hover {
+  background: var(--line-soft);
+}
+
+.btnInscription {
+  padding: 11px 20px;
+  background: var(--yellow);
   color: var(--ink);
+  border-radius: 11px;
+  font-size: 15px;
+  font-weight: 600;
 }
 
-.actions {
-  display: flex;
+.btnInscription:hover {
+  background: color-mix(in srgb, var(--yellow) 86%, black);
+}
+
+.btnMenu {
+  display: inline-flex;
   align-items: center;
-  gap: 10px;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--paper);
+  color: var(--ink);
+  cursor: pointer;
 }
 
-/* Tablette et bureau : on affiche la navigation complète */
+.menuMobile {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 14px 18px;
+  background: var(--paper);
+  border-bottom: 1px solid var(--line);
+  box-shadow: var(--sh);
+}
+
+.menuMobile a {
+  text-align: center;
+}
+
+/* Tablette et bureau : nav complète, pas de menu burger */
 @media (min-width: 601px) {
   .header {
     padding: 18px 40px;
   }
 
-  .nav {
+  .marque {
+    font-size: 20px;
+    gap: 11px;
+  }
+
+  .actions {
     display: flex;
+  }
+
+  .btnMenu {
+    display: none;
   }
 }

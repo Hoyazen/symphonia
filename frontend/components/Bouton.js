@@ -5,13 +5,19 @@ import styles from "./Bouton.module.css";
 export default function Bouton({
   href,
   variante = "primaire",
+  taille = "normale",
   pleineLargeur = false,
   type = "button",
   disabled = false,
   onClick,
   children,
 }) {
-  const classes = `${styles.bouton} ${styles[variante]} ${pleineLargeur ? styles.pleineLargeur : ""}`;
+  const classes = [
+    styles.bouton,
+    styles[variante],
+    taille === "grande" ? styles.grande : "",
+    pleineLargeur ? styles.pleineLargeur : "",
+  ].join(" ");
 
   if (href) {
     return (

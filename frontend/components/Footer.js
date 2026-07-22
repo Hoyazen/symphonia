@@ -11,9 +11,7 @@ export default function Footer() {
       </div>
 
       <div className={styles.liens}>
-        <a href="#">À propos</a>
-        <a href="#">Confidentialité</a>
-        <a href="#">Contact</a>
+        <a href="#">À propos</a> · <a href="#">Confidentialité</a> · <a href="#">Contact</a>
       </div>
 
       <span className={styles.copyright}>© 2026 Symphonia</span>
