@@ -12,6 +12,7 @@ public class Utilisateur {
     private String nom;
     private String role;
     private boolean emailValide;
+    private String tokenValidation;
     private LocalDateTime dateCreation;
 
     public Long getId() {
@@ -68,6 +69,14 @@ public class Utilisateur {
 
     public void setEmailValide(boolean emailValide) {
         this.emailValide = emailValide;
+    }
+
+    public String getTokenValidation() {
+        return tokenValidation;
+    }
+
+    public void setTokenValidation(String tokenValidation) {
+        this.tokenValidation = tokenValidation;
     }
 
     public LocalDateTime getDateCreation() {

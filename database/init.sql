@@ -12,5 +12,6 @@ CREATE TABLE utilisateurs (
     role VARCHAR(30) NOT NULL DEFAULT 'membre'
         CHECK (role IN ('super_admin', 'administrateur_ensemble', 'responsable_partition', 'membre')),
     email_valide BOOLEAN NOT NULL DEFAULT FALSE,
+    token_validation VARCHAR(255), -- token unique envoyé par email, effacé une fois le compte validé
     date_creation TIMESTAMP NOT NULL DEFAULT NOW()
 );

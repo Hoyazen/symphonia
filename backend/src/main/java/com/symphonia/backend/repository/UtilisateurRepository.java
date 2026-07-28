@@ -32,6 +32,7 @@ public class UtilisateurRepository {
         utilisateur.setNom(rs.getString("nom"));
         utilisateur.setRole(rs.getString("role"));
         utilisateur.setEmailValide(rs.getBoolean("email_valide"));
+        utilisateur.setTokenValidation(rs.getString("token_validation"));
         utilisateur.setDateCreation(rs.getTimestamp("date_creation").toLocalDateTime());
         return utilisateur;
     };
@@ -48,18 +49,31 @@ public class UtilisateurRepository {
         return nombre != null && nombre > 0;
     }
 
+    public Optional<Utilisateur> trouverParTokenValidation(String token) {
+        List<Utilisateur> resultats = jdbcTemplate.query(
+                "SELECT * FROM utilisateurs WHERE token_validation = ?", rowMapper, token);
+        return resultats.stream().findFirst();
+    }
+
+    // Marque le compte comme validé et efface le token (à usage unique)
+    public void validerCompte(Long id) {
+        jdbcTemplate.update(
+                "UPDATE utilisateurs SET email_valide = TRUE, token_validation = NULL WHERE id = ?", id);
+    }
+
     public Utilisateur creer(Utilisateur utilisateur) {
         KeyHolder keyHolder = new GeneratedKeyHolder();
 
         jdbcTemplate.update(connection -> {
             PreparedStatement ps = connection.prepareStatement(
-                    "INSERT INTO utilisateurs (email, mot_de_passe, prenom, nom, role) VALUES (?, ?, ?, ?, ?)",
+                    "INSERT INTO utilisateurs (email, mot_de_passe, prenom, nom, role, token_validation) VALUES (?, ?, ?, ?, ?, ?)",
                     Statement.RETURN_GENERATED_KEYS);
             ps.setString(1, utilisateur.getEmail());
             ps.setString(2, utilisateur.getMotDePasse());
             ps.setString(3, utilisateur.getPrenom());
             ps.setString(4, utilisateur.getNom());
             ps.setString(5, utilisateur.getRole());
+            ps.setString(6, utilisateur.getTokenValidation());
             return ps;
         }, keyHolder);
 

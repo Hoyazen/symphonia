@@ -22,9 +22,16 @@ public class AuthController {
     }
 
     @PostMapping("/inscription")
-    public ResponseEntity<AuthResponse> inscription(@Valid @RequestBody InscriptionRequest requete) {
-        AuthResponse reponse = utilisateurService.inscrire(requete);
-        return ResponseEntity.status(HttpStatus.CREATED).body(reponse);
+    public ResponseEntity<Map<String, String>> inscription(@Valid @RequestBody InscriptionRequest requete) {
+        utilisateurService.inscrire(requete);
+        return ResponseEntity.status(HttpStatus.CREATED)
+                .body(Map.of("message", "Compte créé. Vérifie tes emails pour valider ton compte."));
+    }
+
+    @GetMapping("/validation")
+    public ResponseEntity<Map<String, String>> validation(@RequestParam String token) {
+        utilisateurService.validerCompte(token);
+        return ResponseEntity.ok(Map.of("message", "Compte validé avec succès"));
     }
 
     @PostMapping("/connexion")

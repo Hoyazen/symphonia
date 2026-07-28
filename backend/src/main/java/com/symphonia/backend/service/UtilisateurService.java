@@ -9,6 +9,7 @@ import com.symphonia.backend.security.JwtService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.UUID;
 import java.util.regex.Pattern;
 
 @Service
@@ -21,16 +22,19 @@ public class UtilisateurService {
     private final UtilisateurRepository utilisateurRepository;
     private final PasswordEncoder passwordEncoder;
     private final JwtService jwtService;
+    private final EmailService emailService;
 
     public UtilisateurService(UtilisateurRepository utilisateurRepository,
                                PasswordEncoder passwordEncoder,
-                               JwtService jwtService) {
+                               JwtService jwtService,
+                               EmailService emailService) {
         this.utilisateurRepository = utilisateurRepository;
         this.passwordEncoder = passwordEncoder;
         this.jwtService = jwtService;
+        this.emailService = emailService;
     }
 
-    public AuthResponse inscrire(InscriptionRequest requete) {
+    public void inscrire(InscriptionRequest requete) {
         if (utilisateurRepository.existeParEmail(requete.getEmail())) {
             throw new IllegalArgumentException("Un compte existe déjà avec cet email");
         }
@@ -46,11 +50,19 @@ public class UtilisateurService {
         utilisateur.setPrenom(requete.getPrenom());
         utilisateur.setNom(requete.getNom());
         utilisateur.setRole("membre");
+        utilisateur.setTokenValidation(UUID.randomUUID().toString());
 
         Utilisateur cree = utilisateurRepository.creer(utilisateur);
 
-        String token = jwtService.genererToken(cree.getEmail(), cree.getRole());
-        return new AuthResponse(token, cree.getEmail(), cree.getPrenom(), cree.getNom(), cree.getRole());
+        emailService.envoyerEmailValidation(cree.getEmail(), cree.getPrenom(), cree.getTokenValidation());
+    }
+
+    // Valide le compte correspondant au token reçu par email
+    public void validerCompte(String token) {
+        Utilisateur utilisateur = utilisateurRepository.trouverParTokenValidation(token)
+                .orElseThrow(() -> new IllegalArgumentException("Token de validation invalide"));
+
+        utilisateurRepository.validerCompte(utilisateur.getId());
     }
 
     public AuthResponse connecter(ConnexionRequest requete) {
@@ -59,6 +71,10 @@ public class UtilisateurService {
 
         if (!passwordEncoder.matches(requete.getMotDePasse(), utilisateur.getMotDePasse())) {
             throw new IllegalArgumentException("Email ou mot de passe incorrect");
+        }
+
+        if (!utilisateur.isEmailValide()) {
+            throw new IllegalArgumentException("Compte non validé. Vérifie tes emails pour l'activer.");
         }
 
         String token = jwtService.genererToken(utilisateur.getEmail(), utilisateur.getRole());
