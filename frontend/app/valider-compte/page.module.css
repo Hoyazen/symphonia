@@ -1,0 +1,63 @@
+.page {
+  background: var(--cream);
+  padding: 44px 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 70vh;
+}
+
+.conteneur {
+  width: 100%;
+  max-width: 420px;
+}
+
+.enTete {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.carte {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  box-shadow: var(--sh);
+  padding: 28px 24px;
+  text-align: center;
+}
+
+.titre {
+  font-size: 22px;
+  margin: 0 0 10px;
+}
+
+.texte {
+  margin: 0 0 18px;
+  font-size: 14px;
+  color: var(--ink-soft);
+  line-height: 1.5;
+}
+
+.erreurTexte {
+  margin: 0 0 18px;
+  font-size: 14px;
+  color: var(--doc-pdf);
+  line-height: 1.5;
+}
+
+/* ===== Bureau (1025px et plus) ===== */
+@media (min-width: 1025px) {
+  .carte {
+    padding: 34px 32px;
+  }
+
+  .titre {
+    font-size: 26px;
+  }
+
+  .texte,
+  .erreurTexte {
+    font-size: 15px;
+  }
+}

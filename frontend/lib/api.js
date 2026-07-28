@@ -32,3 +32,9 @@ export function connecter({ email, motDePasse }) {
     body: JSON.stringify({ email, motDePasse }),
   });
 }
+
+export function validerCompte(token) {
+  return appelerApi(`/api/auth/validation?token=${encodeURIComponent(token)}`, {
+    method: "GET",
+  });
+}
