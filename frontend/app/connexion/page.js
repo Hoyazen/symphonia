@@ -8,6 +8,7 @@ import Footer from "@/components/Footer";
 import Logo from "@/components/Logo";
 import ChampFormulaire from "@/components/ChampFormulaire";
 import Bouton from "@/components/Bouton";
+import { connecter } from "@/lib/api";
 import styles from "./page.module.css";
 
 // Page de connexion
@@ -16,11 +17,26 @@ export default function Connexion() {
 
   const [email, setEmail] = useState("");
   const [motDePasse, setMotDePasse] = useState("");
+  const [erreur, setErreur] = useState(null);
+  const [chargement, setChargement] = useState(false);
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
-    // TODO: remplacer par le vrai appel de connexion au backend
-    router.push("/tableau-de-bord");
+
+    setErreur(null);
+    setChargement(true);
+    try {
+      const reponse = await connecter({ email, motDePasse });
+      localStorage.setItem("symphonia_token", reponse.token);
+      localStorage.setItem(
+        "symphonia_utilisateur",
+        JSON.stringify({ email: reponse.email, prenom: reponse.prenom, nom: reponse.nom, role: reponse.role })
+      );
+      router.push("/tableau-de-bord");
+    } catch (err) {
+      setErreur(err.message);
+      setChargement(false);
+    }
   }
 
   return (
@@ -36,6 +52,7 @@ export default function Connexion() {
 
           <div className={styles.carte}>
             <form onSubmit={handleSubmit}>
+              {erreur && <p className={styles.erreurGlobale}>{erreur}</p>}
               <ChampFormulaire
                 id="email"
                 label="Adresse e-mail"
@@ -60,8 +77,8 @@ export default function Connexion() {
                 required
               />
 
-              <Bouton type="submit" variante="primaire" taille="grande" pleineLargeur>
-                Se connecter
+              <Bouton type="submit" variante="primaire" taille="grande" pleineLargeur disabled={chargement}>
+                {chargement ? "Connexion en cours…" : "Se connecter"}
               </Bouton>
             </form>
           </div>

@@ -43,6 +43,16 @@
   padding: 24px;
 }
 
+.erreurGlobale {
+  margin: 0 0 16px;
+  padding: 10px 14px;
+  background: var(--doc-pdf-bg);
+  color: var(--doc-pdf);
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
 .lienOublie {
   font-size: 12px;
   font-weight: 600;
