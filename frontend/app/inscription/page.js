@@ -1,25 +1,26 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter } from "next/navigation";
 import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Logo from "@/components/Logo";
 import ChampFormulaire from "@/components/ChampFormulaire";
 import Bouton from "@/components/Bouton";
+import { inscrire } from "@/lib/api";
 import styles from "./page.module.css";
 
 // Page d'inscription
 export default function Inscription() {
-  const router = useRouter();
-
   const [prenom, setPrenom] = useState("");
   const [nom, setNom] = useState("");
   const [email, setEmail] = useState("");
   const [motDePasse, setMotDePasse] = useState("");
   const [confirmation, setConfirmation] = useState("");
   const [cguAcceptee, setCguAcceptee] = useState(false);
+  const [erreur, setErreur] = useState(null);
+  const [chargement, setChargement] = useState(false);
+  const [succes, setSucces] = useState(false);
 
   // Règles de mot de passe, vérifiées en direct pendant la saisie
   const auMoins8Caracteres = motDePasse.length >= 8;
@@ -27,10 +28,24 @@ export default function Inscription() {
   const unCaractereSpecial = /[^A-Za-z0-9]/.test(motDePasse);
   const motsDePasseIdentiques = confirmation.length > 0 && motDePasse === confirmation;
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
-    // TODO: remplacer par le vrai appel d'inscription au backend
-    router.push("/tableau-de-bord");
+
+    if (motDePasse !== confirmation) {
+      setErreur("Les mots de passe ne correspondent pas.");
+      return;
+    }
+
+    setErreur(null);
+    setChargement(true);
+    try {
+      await inscrire({ prenom, nom, email, motDePasse });
+      setSucces(true);
+    } catch (err) {
+      setErreur(err.message);
+    } finally {
+      setChargement(false);
+    }
   }
 
   return (
@@ -45,7 +60,19 @@ export default function Inscription() {
           </div>
 
           <div className={styles.carte}>
+            {succes ? (
+              <div className={styles.succesBoite}>
+                <p className={styles.succesTitre}>Compte créé !</p>
+                <p className={styles.succesTexte}>
+                  Un e-mail de validation a été envoyé à {email}. Clique sur le lien qu&apos;il contient pour activer ton compte, puis connecte-toi.
+                </p>
+                <Bouton href="/connexion" variante="primaire" taille="grande" pleineLargeur>
+                  Aller à la connexion
+                </Bouton>
+              </div>
+            ) : (
             <form onSubmit={handleSubmit}>
+              {erreur && <p className={styles.erreurGlobale}>{erreur}</p>}
               {/* Photo de profil (juste visuel pour l'instant, pas d'upload réel) */}
               <div className={styles.photoLigne}>
                 <span className={styles.photoAvatar}>
@@ -144,11 +171,12 @@ export default function Inscription() {
                 </span>
               </label>
 
-              <Bouton type="submit" variante="primaire" taille="grande" pleineLargeur>
-                Créer mon compte
+              <Bouton type="submit" variante="primaire" taille="grande" pleineLargeur disabled={chargement}>
+                {chargement ? "Création en cours…" : "Créer mon compte"}
               </Bouton>
               <p className={styles.mentionEmail}>Un e-mail de validation vous sera envoyé.</p>
             </form>
+            )}
           </div>
 
           <p className={styles.dejaInscrit}>

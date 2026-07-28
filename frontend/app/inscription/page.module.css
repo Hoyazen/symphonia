@@ -221,6 +221,38 @@
   color: var(--ink);
 }
 
+/* ===== Message d'erreur global ===== */
+
+.erreurGlobale {
+  margin: 0 0 16px;
+  padding: 10px 14px;
+  background: var(--doc-pdf-bg);
+  color: var(--doc-pdf);
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* ===== Boîte de succès (après inscription) ===== */
+
+.succesBoite {
+  text-align: center;
+}
+
+.succesTitre {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0 0 8px;
+  color: var(--ten);
+}
+
+.succesTexte {
+  margin: 0 0 18px;
+  font-size: 14px;
+  color: var(--ink-soft);
+  line-height: 1.5;
+}
+
 /* ===== Bas de page ===== */
 
 .mentionEmail {
