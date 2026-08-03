@@ -2,7 +2,11 @@ package com.symphonia.backend.model;
 
 import java.time.LocalDateTime;
 
+import jakarta.persistence.Entity;
+
+@Entity
 // Représente une ligne de la table "utilisateurs"
+// 
 public class Utilisateur {
 
     private Long id;

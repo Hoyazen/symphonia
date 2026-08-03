@@ -1,4 +1,15 @@
-<diagram program="umletino" version="15.1"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>120</x><y>120</y><w>150</w><h>150</h></coordinates><panel_attributes>bg=yellow
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.1">
+  <zoom_level>11</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>88</x>
+      <y>1254</y>
+      <w>319</w>
+      <h>198</h>
+    </coordinates>
+    <panel_attributes>bg=yellow
 User
 --
  - id: UUID
@@ -8,75 +19,341 @@ User
  - password: String
  - isValidated: Boolean
  - createAt : DateTime
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>760</x><y>120</y><w>190</w><h>80</h></coordinates><panel_attributes>bg=red
+--
+ + getters/setters/ctor</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1034</x>
+      <y>1254</y>
+      <w>209</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>bg=red
 Ensemble
 --
  - id: UUID
  - nom: String
- - createdAt: DateTime</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>760</x><y>330</y><w>160</w><h>120</h></coordinates><panel_attributes>bg=blue
+ - createdAt: DateTime</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1034</x>
+      <y>1485</y>
+      <w>209</w>
+      <h>154</h>
+    </coordinates>
+    <panel_attributes>bg=blue
 Song
 --
  - id: UUID
  - title: String
  - composer: String
- - description: Text
+ - description: String
  - createdAt: DateTime
 
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>120</x><y>360</y><w>150</w><h>100</h></coordinates><panel_attributes>bg=green
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>88</x>
+      <y>1551</y>
+      <w>319</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>bg=green
 Invitation
 --
  - id: UUID
  - email: String
  - statut: String
- - dateSent: DateTime</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>190</x><y>260</y><w>50</w><h>120</h></coordinates><panel_attributes>lt=-
+ - dateSent: DateTime</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>220</x>
+      <y>1441</y>
+      <w>55</w>
+      <h>132</h>
+    </coordinates>
+    <panel_attributes>lt=-
 m1=0..*
 m2=1
-</panel_attributes><additional_attributes>10;100;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>830</x><y>190</y><w>50</w><h>160</h></coordinates><panel_attributes>lt=-
+</panel_attributes>
+    <additional_attributes>10.0;100.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1122</x>
+      <y>1353</y>
+      <w>55</w>
+      <h>154</h>
+    </coordinates>
+    <panel_attributes>lt=-
 m1=0..*
 m2=1
-</panel_attributes><additional_attributes>10;140;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>760</x><y>550</y><w>160</w><h>130</h></coordinates><panel_attributes>bg=#F5009D
+</panel_attributes>
+    <additional_attributes>10.0;120.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1034</x>
+      <y>1727</y>
+      <w>209</w>
+      <h>165</h>
+    </coordinates>
+    <panel_attributes>bg=#F5009D
 Document
 --
  - id: UUID
  - name: String
  - type: String
- - description: Text
- - filePath: Text
+ - description: String
+ - filePath: String
  - addDate: DateTime
  
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>830</x><y>440</y><w>50</w><h>130</h></coordinates><panel_attributes>lt=-
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1122</x>
+      <y>1628</y>
+      <w>55</w>
+      <h>121</h>
+    </coordinates>
+    <panel_attributes>lt=-
 m1=0..*
 m2=1
-</panel_attributes><additional_attributes>10;110;10;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>430</x><y>550</y><w>160</w><h>50</h></coordinates><panel_attributes>bg=#BABABA
-DocumentInstrument
---
- - id: UUID
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>120</x><y>550</y><w>160</w><h>90</h></coordinates><panel_attributes>bg=#00FFD9
+</panel_attributes>
+    <additional_attributes>10.0;90.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>627</x>
+      <y>1749</y>
+      <w>176</w>
+      <h>99</h>
+    </coordinates>
+    <panel_attributes>bg=#00FFD9
 Instrument
 --
- - id: UID
+ - id: UUID
  - name: String
  - description: String
-</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>440</x><y>120</y><w>160</w><h>70</h></coordinates><panel_attributes>bg=#FF9D00
-Belonging
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>627</x>
+      <y>1254</y>
+      <w>176</w>
+      <h>77</h>
+    </coordinates>
+    <panel_attributes>bg=#FF9D00
+Registration
 --
  - role: String
- - joinedAt: DateTime</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>260</x><y>140</y><w>200</w><h>50</h></coordinates><panel_attributes>lt=-
+ - joinedAt: DateTime</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>396</x>
+      <y>1276</y>
+      <w>253</w>
+      <h>55</h>
+    </coordinates>
+    <panel_attributes>lt=-
 m1=0..*
 m2=1
-</panel_attributes><additional_attributes>180;20;10;20</additional_attributes></element><element><id>Relation</id><coordinates><x>590</x><y>140</y><w>190</w><h>50</h></coordinates><panel_attributes>lt=-
+</panel_attributes>
+    <additional_attributes>210.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>792</x>
+      <y>1276</y>
+      <w>264</w>
+      <h>55</h>
+    </coordinates>
+    <panel_attributes>lt=-
 m1=0..*
 m2=1
-</panel_attributes><additional_attributes>10;20;170;20</additional_attributes></element><element><id>Relation</id><coordinates><x>560</x><y>590</y><w>220</w><h>60</h></coordinates><panel_attributes>lt=-
-m1=0..*
-m2=0..*
-</panel_attributes><additional_attributes>200;30;10;30;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>270</x><y>590</y><w>220</w><h>60</h></coordinates><panel_attributes>lt=-
-m1=0..*
-m2=0..*
-</panel_attributes><additional_attributes>10;30;180;30;180;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>400</x><y>210</y><w>240</w><h>100</h></coordinates><panel_attributes>lt=.
+</panel_attributes>
+    <additional_attributes>10.0;20.0;220.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>594</x>
+      <y>1353</y>
+      <w>264</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>lt=.
 Rôles possibles (Belonging.role)
 --
  - MEMBER
  - RESPONSABLE_PARTITION
  - ADMIN_ENSEMBLE
- - SUPER_ADMIN</panel_attributes><additional_attributes></additional_attributes></element></diagram>
+ - SUPER_ADMIN</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>11</x>
+      <y>1166</y>
+      <w>1265</w>
+      <h>759</h>
+    </coordinates>
+    <panel_attributes>com.symphonia.backend.model</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>0</x>
+      <y>748</y>
+      <w>1276</w>
+      <h>330</h>
+    </coordinates>
+    <panel_attributes>com.symphnia.backend.repositories</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>165</x>
+      <y>891</y>
+      <w>231</w>
+      <h>77</h>
+    </coordinates>
+    <panel_attributes>UserRepository
+--
+
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>264</x>
+      <y>957</y>
+      <w>121</w>
+      <h>319</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+&lt;&lt;instantiate&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;270.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>0</x>
+      <y>363</y>
+      <w>1287</w>
+      <h>330</h>
+    </coordinates>
+    <panel_attributes>com.symphnia.backend.service</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>154</x>
+      <y>143</y>
+      <w>253</w>
+      <h>77</h>
+    </coordinates>
+    <panel_attributes>UserController
+--
+
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>0</x>
+      <y>0</y>
+      <w>1287</w>
+      <h>330</h>
+    </coordinates>
+    <panel_attributes>com.symphnia.backend.controller</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>165</x>
+      <y>495</y>
+      <w>231</w>
+      <h>77</h>
+    </coordinates>
+    <panel_attributes>UserService
+--
+
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>253</x>
+      <y>209</y>
+      <w>77</w>
+      <h>308</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+&lt;&lt;uses&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;260.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>264</x>
+      <y>561</y>
+      <w>77</w>
+      <h>352</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;.
+&lt;&lt;uses&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;300.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>792</x>
+      <y>1782</y>
+      <w>264</w>
+      <h>55</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=0..*
+m2=0..*
+&lt; is composed by
+concerns &gt;</panel_attributes>
+    <additional_attributes>10.0;20.0;220.0;20.0</additional_attributes>
+  </element>
+</diagram>
