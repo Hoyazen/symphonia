@@ -2,13 +2,15 @@ package com.symphonia.backend.model;
 
 import java.time.LocalDateTime;
 
-import jakarta.persistence.Entity;
+import jakarta.persistence.*;
+
 
 @Entity
 // Représente une ligne de la table "utilisateurs"
 // 
 public class Utilisateur {
 
+    @Id
     private Long id;
     private String email;
     private String motDePasse; // haché avec BCrypt

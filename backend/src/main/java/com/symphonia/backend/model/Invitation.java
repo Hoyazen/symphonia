@@ -2,6 +2,8 @@ package com.symphonia.backend.model;
 
 import java.util.UUID;
 import java.time.LocalDateTime;
+import jakarta.persistence.*;
+
 
 @Entity
 public class Invitation {
@@ -20,6 +22,43 @@ public class Invitation {
     @JoinColumn(name="user_id", referencedColumnName="id")
     private Utilisateur invitedUsed;
 
-    // TODO ajouter les méthodes (getters/setters)
-    // possbilité de le faire en automatique avec VSCode
+    public UUID getId() {
+        return id;
+    }
+
+    public void setId(UUID id) {
+        this.id = id;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getStatut() {
+        return statut;
+    }
+
+    public void setStatut(String statut) {
+        this.statut = statut;
+    }
+
+    public LocalDateTime getDateSent() {
+        return dateSent;
+    }
+
+    public void setDateSent(LocalDateTime dateSent) {
+        this.dateSent = dateSent;
+    }
+
+    public Utilisateur getInvitedUsed() {
+        return invitedUsed;
+    }
+
+    public void setInvitedUsed(Utilisateur invitedUsed) {
+        this.invitedUsed = invitedUsed;
+    }
 }

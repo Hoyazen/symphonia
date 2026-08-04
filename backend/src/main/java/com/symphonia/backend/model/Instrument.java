@@ -1,6 +1,8 @@
 package com.symphonia.backend.model;
 
 import java.util.UUID;
+import jakarta.persistence.*;
+
 
 @Entity
 public class Instrument {
