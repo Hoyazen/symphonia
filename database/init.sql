@@ -45,13 +45,19 @@ CREATE TABLE IF NOT EXISTS ensembles (
 );
 
 -- Association entre un utilisateur et un ensemble
+
+CREATE TYPE members_role AS ENUM (
+    'MEMBER',
+    'PARTITION_MANAGER',
+    'ADMIN'
+);
+
 CREATE TABLE IF NOT EXISTS ensemble_members (
     user_id BIGINT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
     ensemble_id BIGINT NOT NULL REFERENCES ensembles(id) ON DELETE CASCADE,
 
     -- rôle de l'utilisateur dans l'ensemble
-    role VARCHAR(30) NOT NULL DEFAULT 'MEMBER'
-        CHECK (role IN ('MEMBER', 'PARTITION_MANAGER', 'ADMIN')),
+    role members_role NOT NULL DEFAULT 'MEMBER';
 
     joined_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
 
