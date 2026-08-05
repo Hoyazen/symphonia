@@ -5,15 +5,15 @@ public class AuthResponse {
 
     private String token;
     private String email;
-    private String prenom;
-    private String nom;
+    private String firstName;
+    private String name;
     private String role;
 
-    public AuthResponse(String token, String email, String prenom, String nom, String role) {
+    public AuthResponse(String token, String email, String firstName, String name, String role) {
         this.token = token;
         this.email = email;
-        this.prenom = prenom;
-        this.nom = nom;
+        this.firstName = firstName;
+        this.name = name;
         this.role = role;
     }
 
@@ -26,11 +26,11 @@ public class AuthResponse {
     }
 
     public String getPrenom() {
-        return prenom;
+        return firstName;
     }
 
     public String getNom() {
-        return nom;
+        return name;
     }
 
     public String getRole() {

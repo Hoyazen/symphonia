@@ -11,13 +11,13 @@ public class InscriptionRequest {
     private String email;
 
     @NotBlank(message = "Le mot de passe est obligatoire")
-    private String motDePasse;
+    private String password;
 
     @NotBlank(message = "Le prénom est obligatoire")
-    private String prenom;
+    private String firstName;
 
     @NotBlank(message = "Le nom est obligatoire")
-    private String nom;
+    private String name;
 
     public String getEmail() {
         return email;
@@ -28,26 +28,26 @@ public class InscriptionRequest {
     }
 
     public String getMotDePasse() {
-        return motDePasse;
+        return password;
     }
 
-    public void setMotDePasse(String motDePasse) {
-        this.motDePasse = motDePasse;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
-    public String getPrenom() {
-        return prenom;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setPrenom(String prenom) {
-        this.prenom = prenom;
+    public void setfirstName(String firstName) {
+        this.firstName = firstName;
     }
 
-    public String getNom() {
-        return nom;
+    public String getName() {
+        return name;
     }
 
-    public void setNom(String nom) {
-        this.nom = nom;
+    public void setName(String name) {
+        this.name = name;
     }
 }

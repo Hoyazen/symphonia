@@ -9,7 +9,7 @@ public class ConnexionRequest {
     private String email;
 
     @NotBlank(message = "Le mot de passe est obligatoire")
-    private String motDePasse;
+    private String password;
 
     public String getEmail() {
         return email;
@@ -20,10 +20,10 @@ public class ConnexionRequest {
     }
 
     public String getMotDePasse() {
-        return motDePasse;
+        return password;
     }
 
-    public void setMotDePasse(String motDePasse) {
-        this.motDePasse = motDePasse;
+    public void setMotDePasse(String password) {
+        this.password = password;
     }
 }

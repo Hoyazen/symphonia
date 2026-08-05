@@ -14,7 +14,7 @@ import java.util.UUID;
 import java.util.regex.Pattern;
 
 @Service
-public class UtilisateurService {
+public class UserService {
 
     // Au moins 8 caractères, 1 majuscule, 1 caractère spécial
     private static final Pattern REGLE_MOT_DE_PASSE = Pattern.compile("^(?=.*[A-Z])(?=.*[^a-zA-Z0-9]).{8,}$");
@@ -24,7 +24,7 @@ public class UtilisateurService {
     private final JwtService jwtService;
     private final EmailService emailService;
 
-    public UtilisateurService(
+    public UserService(
             UtilisateurRepository utilisateurRepository,
             PasswordEncoder passwordEncoder,
             JwtService jwtService,
@@ -53,8 +53,8 @@ public class UtilisateurService {
         utilisateur.setMotDePasse(
                 passwordEncoder.encode(requete.getMotDePasse()));
 
-        utilisateur.setPrenom(requete.getPrenom());
-        utilisateur.setNom(requete.getNom());
+        utilisateur.setPrenom(requete.getFirstName());
+        utilisateur.setNom(requete.getName());
 
         // Nouveau compte non administrateur par défaut
         utilisateur.setSuperAdmin(false);

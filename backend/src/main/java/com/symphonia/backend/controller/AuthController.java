@@ -3,7 +3,7 @@ package com.symphonia.backend.controller;
 import com.symphonia.backend.dto.AuthResponse;
 import com.symphonia.backend.dto.ConnexionRequest;
 import com.symphonia.backend.dto.InscriptionRequest;
-import com.symphonia.backend.service.UtilisateurService;
+import com.symphonia.backend.service.UserService;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,9 +15,9 @@ import java.util.Map;
 @RequestMapping("/api/auth")
 public class AuthController {
 
-    private final UtilisateurService utilisateurService;
+    private final UserService utilisateurService;
 
-    public AuthController(UtilisateurService utilisateurService) {
+    public AuthController(UserService utilisateurService) {
         this.utilisateurService = utilisateurService;
     }
 
