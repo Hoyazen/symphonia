@@ -12,7 +12,7 @@
     <panel_attributes>bg=yellow
 User
 --
- - id: UUID
+ - id: LONG
  - firstName: String
  - lastName: String
  - email: String
@@ -34,7 +34,7 @@ User
     <panel_attributes>bg=red
 Ensemble
 --
- - id: UUID
+ - id: LONG
  - nom: String
  - createdAt: DateTime</panel_attributes>
     <additional_attributes/>
@@ -50,7 +50,7 @@ Ensemble
     <panel_attributes>bg=blue
 Song
 --
- - id: UUID
+ - id: LONG
  - title: String
  - composer: String
  - description: String
@@ -70,7 +70,7 @@ Song
     <panel_attributes>bg=green
 Invitation
 --
- - id: UUID
+ - id: LONG
  - email: String
  - statut: String
  - dateSent: DateTime</panel_attributes>
@@ -115,7 +115,7 @@ m2=1
     <panel_attributes>bg=#F5009D
 Document
 --
- - id: UUID
+ - id: LONG
  - name: String
  - type: String
  - description: String
@@ -150,7 +150,7 @@ m2=1
     <panel_attributes>bg=#00FFD9
 Instrument
 --
- - id: UUID
+ - id: LONG
  - name: String
  - description: String
 </panel_attributes>
