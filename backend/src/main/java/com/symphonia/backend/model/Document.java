@@ -1,6 +1,5 @@
 package com.symphonia.backend.model;
 
-import java.util.UUID;
 import java.time.LocalDateTime;
 import jakarta.persistence.*;
 
@@ -8,7 +7,7 @@ import jakarta.persistence.*;
 public class Document {
 
     @Id
-    private UUID id;
+    private Long id;
 
     private String name;
     private String htype;

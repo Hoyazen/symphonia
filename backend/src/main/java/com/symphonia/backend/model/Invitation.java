@@ -1,6 +1,5 @@
 package com.symphonia.backend.model;
 
-import java.util.UUID;
 import java.time.LocalDateTime;
 import jakarta.persistence.*;
 
@@ -12,7 +11,7 @@ public class Invitation {
      * Identifiant de l'invitation
      */
     @Id
-    private UUID id;
+    private Long id;
 
     private String email;
     private String statut;
@@ -22,11 +21,11 @@ public class Invitation {
     @JoinColumn(name="user_id", referencedColumnName="id")
     private Utilisateur invitedUsed;
 
-    public UUID getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(UUID id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

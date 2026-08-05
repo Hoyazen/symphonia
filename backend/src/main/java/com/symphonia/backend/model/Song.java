@@ -1,7 +1,6 @@
 package com.symphonia.backend.model;
 
 import java.util.List;
-import java.util.UUID;
 import java.time.LocalDateTime;
 import jakarta.persistence.*;
 
@@ -11,7 +10,7 @@ public class Song {
 
     // 1 - écrire les attributs
     @Id
-    private UUID id;
+    private Long id;
     private String title;
     private String composer;
     private String description;
@@ -26,11 +25,11 @@ public class Song {
 
     // 2 - écriture des méthodes
 
-    public UUID getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(UUID id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

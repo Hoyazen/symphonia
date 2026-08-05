@@ -57,7 +57,7 @@ CREATE TABLE IF NOT EXISTS ensemble_members (
     ensemble_id BIGINT NOT NULL REFERENCES ensembles(id) ON DELETE CASCADE,
 
 -- rôle de l'utilisateur dans l'ensemble
-    role members_role NOT NULL DEFAULT 'MEMBER';
+    role members_role NOT NULL DEFAULT 'MEMBER',
 
     joined_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
 
@@ -65,6 +65,14 @@ CREATE TABLE IF NOT EXISTS ensemble_members (
 );
 
 -- Invitations envoyées aux futurs membres
+
+CREATE TYPE status AS ENUM (
+    'PENDING',
+    'ACCEPTED',
+    'REFUSED',
+    'EXPIRED'
+);
+
 CREATE TABLE IF NOT EXISTS invitations (
     id BIGSERIAL PRIMARY KEY,
     ensemble_id BIGINT NOT NULL REFERENCES ensembles(id) ON DELETE CASCADE,
@@ -73,8 +81,8 @@ CREATE TABLE IF NOT EXISTS invitations (
     email VARCHAR(255) NOT NULL,
     description TEXT,
     token VARCHAR(255) NOT NULL UNIQUE, -- lien d'invitation
-    status VARCHAR(20) NOT NULL DEFAULT 'PENDING'
-        CHECK (status IN ('PENDING', 'ACCEPTED', 'REFUSED', 'EXPIRED')),
+    status status NOT NULL DEFAULT 'PENDING',
+   
     created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
     expires_at TIMESTAMPTZ NOT NULL,
     accepted_at TIMESTAMPTZ
@@ -144,11 +152,16 @@ CREATE TABLE IF NOT EXISTS document_instruments (
 );
 
 -- Historique des modifications et suppressions des morceaux
+
+CREATE TYPE action AS ENUM (
+    'UPDATE',
+    'DELETE'
+);
+
 CREATE TABLE IF NOT EXISTS song_audit_logs (
     id BIGSERIAL PRIMARY KEY,
     song_id BIGINT NOT NULL,
-    action VARCHAR(10) NOT NULL
-        CHECK (action IN ('UPDATE', 'DELETE')),
+    "action" action NOT NULL,
     song_title VARCHAR(255) NOT NULL,
     details TEXT NOT NULL,
     changed_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
