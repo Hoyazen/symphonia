@@ -56,7 +56,7 @@ CREATE TABLE IF NOT EXISTS ensemble_members (
     user_id BIGINT NOT NULL REFERENCES users(id) ON DELETE CASCADE,
     ensemble_id BIGINT NOT NULL REFERENCES ensembles(id) ON DELETE CASCADE,
 
-    -- rôle de l'utilisateur dans l'ensemble
+-- rôle de l'utilisateur dans l'ensemble
     role members_role NOT NULL DEFAULT 'MEMBER';
 
     joined_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
@@ -107,23 +107,24 @@ CREATE TABLE IF NOT EXISTS songs (
 );
 
 -- Documents associés à un morceau
+CREATE TYPE document_type AS ENUM (
+    'SCORE',
+    'AUDIO',
+    'IMAGE',
+    'SOFTWARE',
+    'EXTERNAL_LINK',
+    'OTHER'
+);
+
 CREATE TABLE IF NOT EXISTS documents (
     id BIGSERIAL PRIMARY KEY,
     song_id BIGINT NOT NULL REFERENCES songs(id) ON DELETE CASCADE,
     uploaded_by BIGINT REFERENCES users(id) ON DELETE SET NULL,
     name VARCHAR(255) NOT NULL,
 
-    -- type du document
-    document_type VARCHAR(30) NOT NULL
-        CHECK (document_type IN (
-            'SCORE',
-            'AUDIO',
-            'IMAGE',
-            'SOFTWARE',
-            'EXTERNAL_LINK',
-            'OTHER'
-        )),
-
+-- type du document
+    "type" document_type NOT NULL,
+        
     description TEXT,
     file_path VARCHAR(1024), -- chemin du fichier stocké
     external_url VARCHAR(2048), -- lien externe éventuel
