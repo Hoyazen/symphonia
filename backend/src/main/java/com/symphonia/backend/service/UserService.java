@@ -1,10 +1,10 @@
 package com.symphonia.backend.service;
 
 import com.symphonia.backend.dto.AuthResponse;
-import com.symphonia.backend.dto.ConnexionRequest;
-import com.symphonia.backend.dto.InscriptionRequest;
-import com.symphonia.backend.model.Utilisateur;
-import com.symphonia.backend.repository.UtilisateurRepository;
+import com.symphonia.backend.dto.LoginRequest;
+import com.symphonia.backend.dto.RegistrationRequest;
+import com.symphonia.backend.model.User;
+import com.symphonia.backend.repository.UserRepository;
 import com.symphonia.backend.security.JwtService;
 
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -17,105 +17,106 @@ import java.util.regex.Pattern;
 public class UserService {
 
     // Au moins 8 caractères, 1 majuscule, 1 caractère spécial
-    private static final Pattern REGLE_MOT_DE_PASSE = Pattern.compile("^(?=.*[A-Z])(?=.*[^a-zA-Z0-9]).{8,}$");
+    private static final Pattern PASSWORD_RULE =
+            Pattern.compile("^(?=.*[A-Z])(?=.*[^a-zA-Z0-9]).{8,}$");
 
-    private final UtilisateurRepository utilisateurRepository;
+    private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
     private final JwtService jwtService;
     private final EmailService emailService;
 
     public UserService(
-            UtilisateurRepository utilisateurRepository,
+            UserRepository userRepository,
             PasswordEncoder passwordEncoder,
             JwtService jwtService,
-            EmailService emailService) {
-        this.utilisateurRepository = utilisateurRepository;
+            EmailService emailService
+    ) {
+        this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
         this.jwtService = jwtService;
         this.emailService = emailService;
     }
 
-    public void inscrire(InscriptionRequest requete) {
+    public void register(RegistrationRequest request) {
 
-        if (utilisateurRepository.existeParEmail(requete.getEmail())) {
+        if (userRepository.existsByEmail(request.getEmail())) {
             throw new IllegalArgumentException(
                     "Un compte existe déjà avec cet email");
         }
 
-        if (!REGLE_MOT_DE_PASSE.matcher(requete.getMotDePasse()).matches()) {
+        if (!PASSWORD_RULE.matcher(request.getPassword()).matches()) {
             throw new IllegalArgumentException(
                     "Le mot de passe doit contenir au moins 8 caractères, une majuscule et un caractère spécial");
         }
 
-        Utilisateur utilisateur = new Utilisateur();
+        User user = new User();
 
-        utilisateur.setEmail(requete.getEmail());
-        utilisateur.setMotDePasse(
-                passwordEncoder.encode(requete.getMotDePasse()));
+        user.setEmail(request.getEmail());
+        user.setPassword(
+                passwordEncoder.encode(request.getPassword()));
 
-        utilisateur.setPrenom(requete.getFirstName());
-        utilisateur.setNom(requete.getName());
+        user.setFirstName(request.getFirstName());
+        user.setLastName(request.getLastName());
 
         // Nouveau compte non administrateur par défaut
-        utilisateur.setSuperAdmin(false);
+        user.setSuperAdmin(false);
 
         // Compte non validé tant que le lien email n'est pas utilisé
-        utilisateur.setEmailValide(false);
+        user.setEmailValidated(false);
 
         // Génération du token de validation
-        utilisateur.setTokenValidation(
+        user.setValidationToken(
                 UUID.randomUUID().toString());
 
-        Utilisateur cree = utilisateurRepository.creer(utilisateur);
+        User createdUser = userRepository.create(user);
 
-        emailService.envoyerEmailValidation(
-                cree.getEmail(),
-                cree.getPrenom(),
-                cree.getTokenValidation());
+        emailService.sendValidationEmail(
+                createdUser.getEmail(),
+                createdUser.getFirstName(),
+                createdUser.getValidationToken());
     }
 
     // Valide le compte correspondant au token reçu par email
-    public void validerCompte(String token) {
+    public void validateAccount(String token) {
 
-        Utilisateur utilisateur = utilisateurRepository.trouverParTokenValidation(token)
+        User user = userRepository.findByValidationToken(token)
                 .orElseThrow(() -> new IllegalArgumentException(
                         "Token de validation invalide"));
 
-        utilisateurRepository.validerCompte(
-                utilisateur.getId());
+        userRepository.validateAccount(user.getId());
     }
 
-    public AuthResponse connecter(ConnexionRequest requete) {
+    public AuthResponse login(LoginRequest request) {
 
-        Utilisateur utilisateur = utilisateurRepository.trouverParEmail(requete.getEmail())
+        User user = userRepository.findByEmail(request.getEmail())
                 .orElseThrow(() -> new IllegalArgumentException(
                         "Email ou mot de passe incorrect"));
 
         if (!passwordEncoder.matches(
-                requete.getMotDePasse(),
-                utilisateur.getMotDePasse())) {
+                request.getPassword(),
+                user.getPassword())) {
             throw new IllegalArgumentException(
                     "Email ou mot de passe incorrect");
         }
 
-        if (!utilisateur.isEmailValide()) {
+        if (!user.isEmailValidated()) {
             throw new IllegalArgumentException(
                     "Compte non validé. Vérifie tes emails pour l'activer.");
         }
 
-        String token = jwtService.genererToken(
-                utilisateur.getEmail(),
-                utilisateur.isSuperAdmin());
+        String token = jwtService.generateToken(
+                user.getEmail(),
+                user.isSuperAdmin());
 
-        String role = utilisateur.isSuperAdmin()
+        String role = user.isSuperAdmin()
                 ? "SUPER_ADMIN"
                 : "MEMBRE";
 
         return new AuthResponse(
                 token,
-                utilisateur.getEmail(),
-                utilisateur.getPrenom(),
-                utilisateur.getNom(),
+                user.getEmail(),
+                user.getFirstName(),
+                user.getLastName(),
                 role);
     }
 }

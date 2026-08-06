@@ -1,8 +1,8 @@
-.contenu {
+.content {
   padding: 22px 18px 40px;
 }
 
-.retour {
+.backLink {
   display: inline-flex;
   align-items: center;
   gap: 6px;
@@ -12,7 +12,7 @@
   margin-bottom: 18px;
 }
 
-.retour:hover {
+.backLink:hover {
   color: var(--ink);
 }
 
@@ -30,12 +30,12 @@
   gap: 16px;
 }
 
-.heroTexte {
+.heroText {
   flex: 1;
   min-width: 240px;
 }
 
-.heroLigneHaut {
+.heroTopRow {
   display: flex;
   align-items: center;
   gap: 10px;
@@ -55,12 +55,12 @@
   color: var(--ink-faint);
 }
 
-.heroTitre {
+.heroTitle {
   font-size: 25px;
   margin: 0 0 4px;
 }
 
-.heroCompositeur {
+.heroComposer {
   margin: 0 0 12px;
   font-size: 15px;
   font-weight: 600;
@@ -76,52 +76,52 @@
 }
 
 /* Le bouton "Ajouter un document" prend toute la largeur sur mobile */
-.boutonAjouter a,
-.boutonAjouter button {
+.addButton a,
+.addButton button {
   width: 100%;
 }
 
 /* ===== Groupes de documents par pupitre ===== */
 
-.grillePrincipale {
+.mainGrid {
   display: flex;
   flex-direction: column;
   gap: 24px;
 }
 
-.groupe {
+.group {
   margin-bottom: 22px;
 }
 
-.groupe:last-child {
+.group:last-child {
   margin-bottom: 0;
 }
 
-.groupeEnTete {
+.groupHeader {
   display: flex;
   align-items: center;
   gap: 9px;
   margin-bottom: 11px;
 }
 
-.groupePoint {
+.groupDot {
   width: 9px;
   height: 9px;
   border-radius: 999px;
   flex: none;
 }
 
-.groupeTitre {
+.groupTitle {
   font-size: 15px;
   margin: 0;
 }
 
-.groupeCompte {
+.groupCount {
   font-size: 13px;
   color: var(--ink-faint);
 }
 
-.groupeListe {
+.groupList {
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -143,7 +143,7 @@
   border-color: var(--yellow);
 }
 
-.documentIcone {
+.documentIcon {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -153,12 +153,12 @@
   border-radius: 10px;
 }
 
-.documentTexte {
+.documentText {
   flex: 1;
   min-width: 0;
 }
 
-.documentNom {
+.documentName {
   font-size: 14px;
   font-weight: 700;
 }
@@ -168,8 +168,8 @@
   color: var(--ink-faint);
 }
 
-.documentSupprimer,
-.documentSupprimerVideo {
+.deleteDocumentButton,
+.deleteVideoDocumentButton {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -183,15 +183,15 @@
   cursor: pointer;
 }
 
-.documentSupprimer:hover,
-.documentSupprimerVideo:hover {
+.deleteDocumentButton:hover,
+.deleteVideoDocumentButton:hover {
   background: var(--doc-pdf-bg);
   color: var(--doc-pdf);
 }
 
 /* ===== Lecteur audio complet ===== */
 
-.lecteurAudio {
+.audioPlayer {
   display: flex;
   align-items: center;
   gap: 12px;
@@ -201,7 +201,7 @@
   border-radius: 13px;
 }
 
-.lecteurBouton {
+.playerButton {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -215,12 +215,12 @@
   cursor: pointer;
 }
 
-.lecteurInfos {
+.playerInfo {
   flex: 1;
   min-width: 0;
 }
 
-.lecteurLigneHaut {
+.playerTopRow {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -228,32 +228,32 @@
   margin-bottom: 6px;
 }
 
-.lecteurNom {
+.playerName {
   font-size: 14px;
   font-weight: 700;
 }
 
-.lecteurTemps {
+.playerTime {
   font-size: 11.5px;
   color: var(--ink-faint);
   flex: none;
 }
 
-.lecteurBarre {
+.playerBar {
   height: 5px;
   border-radius: 999px;
   background: #eee6d6;
   overflow: hidden;
 }
 
-.lecteurBarreRemplie {
+.playerBarFill {
   width: 38%;
   height: 100%;
   background: var(--yellow);
 }
 
 /* Petit égaliseur décoratif, animé seulement pendant la lecture */
-.equaliseur {
+.equalizer {
   display: none;
   align-items: flex-end;
   gap: 3px;
@@ -261,26 +261,26 @@
   flex: none;
 }
 
-.equaliseur span {
+.equalizer span {
   width: 3px;
   border-radius: 2px;
   background: var(--yellow);
   height: 6px;
 }
 
-.equaliseurActif span {
+.activeEqualizer span {
   animation: equaliseur 0.9s ease-in-out infinite;
 }
 
-.equaliseurActif span:nth-child(2) {
+.activeEqualizer span:nth-child(2) {
   animation-delay: 0.15s;
 }
 
-.equaliseurActif span:nth-child(3) {
+.activeEqualizer span:nth-child(3) {
   animation-delay: 0.3s;
 }
 
-.equaliseurActif span:nth-child(4) {
+.activeEqualizer span:nth-child(4) {
   animation-delay: 0.45s;
 }
 
@@ -298,7 +298,7 @@
   overflow: hidden;
 }
 
-.videoApercu {
+.videoPreview {
   position: relative;
   display: block;
   width: 100%;
@@ -309,7 +309,7 @@
   background: radial-gradient(circle at 50% 45%, #403a33, #1a1714);
 }
 
-.videoJouer {
+.videoPlayButton {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -324,7 +324,7 @@
   color: #fff;
 }
 
-.videoLegende {
+.videoCaption {
   position: absolute;
   left: 14px;
   bottom: 12px;
@@ -343,18 +343,18 @@
   letter-spacing: 0.08em;
 }
 
-.videoTitre {
+.videoTitle {
   font-size: 14px;
   font-weight: 700;
 }
 
-.videoCadre {
+.videoFrame {
   position: relative;
   width: 100%;
   aspect-ratio: 16 / 9;
 }
 
-.videoCadre iframe {
+.videoFrame iframe {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -362,7 +362,7 @@
   border: none;
 }
 
-.videoBas {
+.videoBottom {
   display: flex;
   align-items: center;
   gap: 9px;
@@ -383,7 +383,7 @@
   color: var(--ink-faint);
 }
 
-.documentSupprimerVideo {
+.deleteVideoDocumentButton {
   margin-left: auto;
   width: 32px;
   height: 32px;
@@ -391,7 +391,7 @@
 
 /* ===== Colonne latérale ===== */
 
-.asideCarte {
+.asideCard {
   background: var(--paper);
   border: 1px solid var(--line);
   border-radius: var(--r);
@@ -400,29 +400,29 @@
   margin-bottom: 16px;
 }
 
-.asideTitre {
+.asideTitle {
   margin: 0 0 14px;
   font-size: 15px;
 }
 
-.asideListe {
+.asideList {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
-.asideLigne {
+.asideRow {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.asideLigneTotal {
+.asideTotalRow {
   border-top: 1px solid var(--line-soft);
   padding-top: 10px;
 }
 
-.asideLibelle {
+.asideLabel {
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -430,33 +430,33 @@
   font-weight: 600;
 }
 
-.asidePoint {
+.asideDot {
   width: 9px;
   height: 9px;
   border-radius: 999px;
   flex: none;
 }
 
-.asideCompte {
+.asideCount {
   font-size: 13px;
   color: var(--ink-faint);
 }
 
-.astuce {
+.tip {
   background: var(--yellow-tint);
   border: 1px solid var(--line);
   border-radius: var(--r);
   padding: 20px;
 }
 
-.astuceTitre {
+.tipTitle {
   font-size: 13px;
   font-weight: 700;
   color: #8a5f00;
   margin-bottom: 5px;
 }
 
-.astuceTexte {
+.tipText {
   margin: 0;
   font-size: 13.5px;
   line-height: 1.5;
@@ -465,7 +465,7 @@
 
 /* ===== Tablette (601-1024px) ===== */
 @media (min-width: 601px) {
-  .contenu {
+  .content {
     padding: 28px 32px;
   }
 
@@ -474,19 +474,19 @@
     border-radius: 18px;
   }
 
-  .boutonAjouter a,
-  .boutonAjouter button {
+  .addButton a,
+  .addButton button {
     width: auto;
   }
 
-  .equaliseur {
+  .equalizer {
     display: flex;
   }
 }
 
 /* ===== Bureau (1025px et plus) ===== */
 @media (min-width: 1025px) {
-  .contenu {
+  .content {
     padding: 28px 32px 44px;
   }
 
@@ -496,11 +496,11 @@
     margin-bottom: 28px;
   }
 
-  .heroTitre {
+  .heroTitle {
     font-size: 34px;
   }
 
-  .heroCompositeur {
+  .heroComposer {
     font-size: 17px;
   }
 
@@ -509,7 +509,7 @@
     line-height: 1.6;
   }
 
-  .grillePrincipale {
+  .mainGrid {
     display: grid;
     grid-template-columns: 1fr 380px;
     gap: 28px;

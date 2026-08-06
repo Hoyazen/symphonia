@@ -1,25 +1,25 @@
-import styles from "./ChampFormulaire.module.css";
+import styles from "./FormField.module.css";
 
 // Champ de formulaire réutilisable : étiquette + input
 // "lienEtiquette" permet d'ajouter un lien à droite de l'étiquette (ex: "Mot de passe oublié ?")
-export default function ChampFormulaire({
+export default function FormField({
   id,
   label,
   type = "text",
   value,
   onChange,
   placeholder,
-  erreur,
-  lienEtiquette,
-  ...autresProps
+  error,
+  labelLink,
+  ...otherProps
 }) {
   return (
-    <div className={styles.champ}>
-      <div className={styles.ligneEtiquette}>
-        <label htmlFor={id} className={styles.etiquette}>
+    <div className={styles.field}>
+      <div className={styles.labelRow}>
+        <label htmlFor={id} className={styles.labelText}>
           {label}
         </label>
-        {lienEtiquette}
+        {labelLink}
       </div>
       <input
         id={id}
@@ -28,10 +28,10 @@ export default function ChampFormulaire({
         value={value}
         onChange={onChange}
         placeholder={placeholder}
-        className={styles.saisie}
-        {...autresProps}
+        className={styles.input}
+        {...otherProps}
       />
-      {erreur && <p className={styles.erreur}>{erreur}</p>}
+      {error && <p className={styles.error}>{error}</p>}
     </div>
   );
 }

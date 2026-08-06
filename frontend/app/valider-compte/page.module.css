@@ -7,18 +7,18 @@
   min-height: 70vh;
 }
 
-.conteneur {
+.container {
   width: 100%;
   max-width: 420px;
 }
 
-.enTete {
+.headerSection {
   display: flex;
   justify-content: center;
   margin-bottom: 24px;
 }
 
-.carte {
+.card {
   background: var(--paper);
   border: 1px solid var(--line);
   border-radius: 18px;
@@ -27,19 +27,19 @@
   text-align: center;
 }
 
-.titre {
+.title {
   font-size: 22px;
   margin: 0 0 10px;
 }
 
-.texte {
+.text {
   margin: 0 0 18px;
   font-size: 14px;
   color: var(--ink-soft);
   line-height: 1.5;
 }
 
-.erreurTexte {
+.errorText {
   margin: 0 0 18px;
   font-size: 14px;
   color: var(--doc-pdf);
@@ -48,16 +48,16 @@
 
 /* ===== Bureau (1025px et plus) ===== */
 @media (min-width: 1025px) {
-  .carte {
+  .card {
     padding: 34px 32px;
   }
 
-  .titre {
+  .title {
     font-size: 26px;
   }
 
-  .texte,
-  .erreurTexte {
+  .text,
+  .errorText {
     font-size: 15px;
   }
 }

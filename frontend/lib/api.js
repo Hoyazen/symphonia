@@ -1,8 +1,8 @@
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8080";
 
 // Appelle l'API backend et transforme les erreurs métier en Error lisible
-async function appelerApi(chemin, options) {
-  const reponse = await fetch(`${API_BASE_URL}${chemin}`, {
+async function callApi(path, options) {
+  const response = await fetch(`${API_BASE_URL}${path}`, {
     ...options,
     headers: {
       "Content-Type": "application/json",
@@ -10,31 +10,31 @@ async function appelerApi(chemin, options) {
     },
   });
 
-  const corps = await reponse.json().catch(() => null);
+  const data = await response.json().catch(() => null);
 
-  if (!reponse.ok) {
-    throw new Error(corps?.erreur || "Une erreur est survenue, réessaie plus tard.");
+  if (!response.ok) {
+    throw new Error(data?.error || "Une erreur est survenue, réessaie plus tard.");
   }
 
-  return corps;
+  return data;
 }
 
-export function inscrire({ prenom, nom, email, motDePasse }) {
-  return appelerApi("/api/auth/inscription", {
+export function register({ firstName, lastName, email, password }) {
+  return callApi("/api/auth/inscription", {
     method: "POST",
-    body: JSON.stringify({ prenom, nom, email, motDePasse }),
+    body: JSON.stringify({ firstName, lastName, email, password }),
   });
 }
 
-export function connecter({ email, motDePasse }) {
-  return appelerApi("/api/auth/connexion", {
+export function login({ email, password }) {
+  return callApi("/api/auth/connexion", {
     method: "POST",
-    body: JSON.stringify({ email, motDePasse }),
+    body: JSON.stringify({ email, password }),
   });
 }
 
-export function validerCompte(token) {
-  return appelerApi(`/api/auth/validation?token=${encodeURIComponent(token)}`, {
+export function validateAccount(token) {
+  return callApi(`/api/auth/validation?token=${encodeURIComponent(token)}`, {
     method: "GET",
   });
 }

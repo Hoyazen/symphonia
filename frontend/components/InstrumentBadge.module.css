@@ -8,13 +8,13 @@
   font-weight: 600;
 }
 
-.point {
+.dot {
   width: 8px;
   height: 8px;
   border-radius: 999px;
 }
 
-.petite {
+.small {
   padding: 4px 10px;
   font-size: 12px;
 }

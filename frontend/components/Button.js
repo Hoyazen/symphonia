@@ -1,22 +1,22 @@
 import Link from "next/link";
-import styles from "./Bouton.module.css";
+import styles from "./Button.module.css";
 
 // Bouton réutilisable : soit un lien (si "href" est fourni), soit un <button>
-export default function Bouton({
+export default function Button({
   href,
-  variante = "primaire",
-  taille = "normale",
-  pleineLargeur = false,
+  variant = "primary",
+  size = "normal",
+  fullWidth = false,
   type = "button",
   disabled = false,
   onClick,
   children,
 }) {
   const classes = [
-    styles.bouton,
-    styles[variante],
-    taille === "grande" ? styles.grande : "",
-    pleineLargeur ? styles.pleineLargeur : "",
+    styles.buttonStyle,
+    styles[variant],
+    size === "large" ? styles.large : "",
+    fullWidth ? styles.fullWidth : "",
   ].join(" ");
 
   if (href) {

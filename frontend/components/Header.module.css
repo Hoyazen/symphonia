@@ -8,19 +8,19 @@
   background: var(--paper);
 }
 
-.groupeGauche {
+.leftGroup {
   display: flex;
   align-items: center;
   gap: 24px;
 }
 
-.droite {
+.rightSide {
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
-.marque {
+.brand {
   display: flex;
   align-items: center;
   gap: 9px;
@@ -30,37 +30,37 @@
 }
 
 /* Navigation "Tableau de bord" / "Mes morceaux" (en-tête connecté), cachée sur mobile */
-.navConnecte {
+.authenticatedNav {
   display: none;
   align-items: center;
   gap: 6px;
 }
 
-.lienNav,
-.lienNavActif {
+.navLink,
+.activeNavLink {
   padding: 8px 14px;
   border-radius: 10px;
   font-size: 15px;
 }
 
-.lienNav {
+.navLink {
   font-weight: 600;
   color: var(--ink-soft);
 }
 
-.lienNav:hover {
+.navLink:hover {
   background: var(--line-soft);
   color: var(--ink);
 }
 
-.lienNavActif {
+.activeNavLink {
   font-weight: 700;
   color: var(--ink);
   background: var(--yellow-soft);
 }
 
 /* Bouton profil (en-tête connecté), caché sur mobile au profit de l'avatar seul */
-.profil {
+.profile {
   display: none;
   align-items: center;
   gap: 9px;
@@ -73,12 +73,12 @@
   cursor: pointer;
 }
 
-.profil:hover {
+.profile:hover {
   border-color: var(--yellow);
 }
 
 .avatar,
-.avatarMobile {
+.mobileAvatar {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -95,13 +95,13 @@
   font-size: 13px;
 }
 
-.avatarMobile {
+.mobileAvatar {
   width: 34px;
   height: 34px;
   font-size: 12px;
 }
 
-.nomUtilisateur {
+.userName {
   font-size: 14px;
   font-weight: 600;
 }
@@ -113,7 +113,7 @@
   gap: 12px;
 }
 
-.btnConnexion {
+.loginButton {
   padding: 10px 18px;
   background: transparent;
   color: var(--ink);
@@ -122,11 +122,11 @@
   font-weight: 600;
 }
 
-.btnConnexion:hover {
+.loginButton:hover {
   background: var(--line-soft);
 }
 
-.btnInscription {
+.registrationButton {
   padding: 11px 20px;
   background: var(--yellow);
   color: var(--ink);
@@ -135,11 +135,11 @@
   font-weight: 600;
 }
 
-.btnInscription:hover {
+.registrationButton:hover {
   background: color-mix(in srgb, var(--yellow) 86%, black);
 }
 
-.btnMenu {
+.menuButton {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -152,7 +152,7 @@
   cursor: pointer;
 }
 
-.menuMobile {
+.mobileMenu {
   position: absolute;
   top: 100%;
   left: 0;
@@ -167,7 +167,7 @@
   box-shadow: var(--sh);
 }
 
-.menuMobile a {
+.mobileMenu a {
   text-align: center;
 }
 
@@ -177,7 +177,7 @@
     padding: 18px 40px;
   }
 
-  .marque {
+  .brand {
     font-size: 20px;
     gap: 11px;
   }
@@ -186,19 +186,19 @@
     display: flex;
   }
 
-  .navConnecte {
+  .authenticatedNav {
     display: flex;
   }
 
-  .profil {
+  .profile {
     display: flex;
   }
 
-  .avatarMobile {
+  .mobileAvatar {
     display: none;
   }
 
-  .btnMenu {
+  .menuButton {
     display: none;
   }
 }

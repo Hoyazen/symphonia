@@ -14,50 +14,50 @@ import java.util.Date;
 @Component
 public class JwtService {
 
-    private final SecretKey cleSecrete;
-    private final long dureeValiditeMs;
+    private final SecretKey secretKey;
+    private final long validityDurationMs;
 
     public JwtService(
             @Value("${jwt.secret}") String secret,
-            @Value("${jwt.expiration-ms}") long dureeValiditeMs) {
-        this.cleSecrete = Keys.hmacShaKeyFor(
+            @Value("${jwt.expiration-ms}") long validityDurationMs) {
+        this.secretKey = Keys.hmacShaKeyFor(
                 secret.getBytes(StandardCharsets.UTF_8));
 
-        this.dureeValiditeMs = dureeValiditeMs;
+        this.validityDurationMs = validityDurationMs;
     }
 
     // Génère un token contenant l'email et le statut administrateur
-    public String genererToken(String email, boolean superAdmin) {
+    public String generateToken(String email, boolean superAdmin) {
 
-        Date maintenant = new Date();
+        Date now = new Date();
         Date expiration = new Date(
-                maintenant.getTime() + dureeValiditeMs);
+                now.getTime() + validityDurationMs);
 
         return Jwts.builder()
                 .subject(email)
                 .claim("superAdmin", superAdmin)
-                .issuedAt(maintenant)
+                .issuedAt(now)
                 .expiration(expiration)
-                .signWith(cleSecrete)
+                .signWith(secretKey)
                 .compact();
     }
 
     // Lit l'email contenu dans le token
-    public String extraireEmail(String token) {
-        return extraireClaims(token).getSubject();
+    public String extractEmail(String token) {
+        return extractClaims(token).getSubject();
     }
 
     // Lit le statut administrateur
-    public boolean extraireSuperAdmin(String token) {
-        Boolean valeur = extraireClaims(token)
+    public boolean extractSuperAdmin(String token) {
+        Boolean value = extractClaims(token)
                 .get("superAdmin", Boolean.class);
 
-        return Boolean.TRUE.equals(valeur);
+        return Boolean.TRUE.equals(value);
     }
 
-    public boolean estValide(String token) {
+    public boolean isValid(String token) {
         try {
-            extraireClaims(token);
+            extractClaims(token);
             return true;
 
         } catch (Exception e) {
@@ -65,10 +65,10 @@ public class JwtService {
         }
     }
 
-    private Claims extraireClaims(String token) {
+    private Claims extractClaims(String token) {
 
         return Jwts.parser()
-                .verifyWith(cleSecrete)
+                .verifyWith(secretKey)
                 .build()
                 .parseSignedClaims(token)
                 .getPayload();

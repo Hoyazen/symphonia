@@ -1,22 +1,22 @@
-.champ {
+.field {
   display: flex;
   flex-direction: column;
   margin-bottom: 16px;
 }
 
-.ligneEtiquette {
+.labelRow {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
   margin-bottom: 7px;
 }
 
-.etiquette {
+.labelText {
   font-size: 13px;
   font-weight: 600;
 }
 
-.saisie {
+.input {
   width: 100%;
   padding: 12px 14px;
   border: 1.5px solid var(--line);
@@ -28,17 +28,17 @@
   font-family: inherit;
 }
 
-.saisie::placeholder {
+.input::placeholder {
   color: var(--ink-faint);
   opacity: 1;
 }
 
-.saisie:focus {
+.input:focus {
   outline: none;
   border-color: var(--yellow);
 }
 
-.erreur {
+.error {
   margin: 6px 0 0;
   font-size: 13px;
   color: var(--doc-pdf);

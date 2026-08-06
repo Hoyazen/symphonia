@@ -8,9 +8,9 @@ import styles from "./Header.module.css";
 
 // Utilisateur affiché quand l'en-tête est en mode "connecté"
 // TODO: remplacer par les vraies données de l'utilisateur connecté (backend)
-const UTILISATEUR_FICTIF = { prenom: "Claire", initiales: "CD" };
+const MOCK_USER = { firstName: "Claire", initials: "CD" };
 
-const LIENS_CONNECTE = [
+const AUTHENTICATED_LINKS = [
   { href: "/tableau-de-bord", label: "Tableau de bord" },
   { href: "/mes-morceaux", label: "Mes morceaux" },
 ];
@@ -18,12 +18,12 @@ const LIENS_CONNECTE = [
 // En-tête affiché sur toutes les pages, avec menu burger sur mobile.
 // "connecte" bascule entre l'en-tête visiteur (Se connecter/S'inscrire)
 // et l'en-tête d'un utilisateur connecté (navigation + profil).
-export default function Header({ connecte = false }) {
-  const [menuOuvert, setMenuOuvert] = useState(false);
+export default function Header({ authenticated = false }) {
+  const [menuOpen, setMenuOpen] = useState(false);
   const pathname = usePathname();
 
   // "Mes morceaux" reste actif sur une fiche morceau, "Tableau de bord" sur une fiche ensemble
-  function estActif(href) {
+  function isActive(href) {
     if (href === "/mes-morceaux") {
       return pathname === href || pathname.startsWith("/morceaux/");
     }
@@ -35,55 +35,55 @@ export default function Header({ connecte = false }) {
 
   return (
     <header className={styles.header}>
-      <div className={styles.groupeGauche}>
-        <Link href={connecte ? "/tableau-de-bord" : "/"} className={styles.marque}>
-          <Logo taille={32} />
+      <div className={styles.leftGroup}>
+        <Link href={authenticated ? "/tableau-de-bord" : "/"} className={styles.brand}>
+          <Logo size={32} />
           Symphonia by AD et Maxii
         </Link>
 
-        {connecte && (
-          <nav className={styles.navConnecte}>
-            {LIENS_CONNECTE.map((lien) => (
+        {authenticated && (
+          <nav className={styles.authenticatedNav}>
+            {AUTHENTICATED_LINKS.map((link) => (
               <Link
-                key={lien.href}
-                href={lien.href}
-                className={estActif(lien.href) ? styles.lienNavActif : styles.lienNav}
+                key={link.href}
+                href={link.href}
+                className={isActive(link.href) ? styles.activeNavLink : styles.navLink}
               >
-                {lien.label}
+                {link.label}
               </Link>
             ))}
           </nav>
         )}
       </div>
 
-      <div className={styles.droite}>
-        {connecte ? (
+      <div className={styles.rightSide}>
+        {authenticated ? (
           <>
             {/* Bouton profil : décoratif pour l'instant */}
             {/* TODO: menu déroulant du profil (paramètres, déconnexion...) */}
-            <button type="button" className={styles.profil}>
-              <span className={styles.avatar}>{UTILISATEUR_FICTIF.initiales}</span>
-              <span className={styles.nomUtilisateur}>{UTILISATEUR_FICTIF.prenom}</span>
+            <button type="button" className={styles.profile}>
+              <span className={styles.avatar}>{MOCK_USER.initials}</span>
+              <span className={styles.userName}>{MOCK_USER.firstName}</span>
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
                 <path d="m6 9 6 6 6-6" />
               </svg>
             </button>
-            <span className={styles.avatarMobile}>{UTILISATEUR_FICTIF.initiales}</span>
+            <span className={styles.mobileAvatar}>{MOCK_USER.initials}</span>
           </>
         ) : (
           <div className={styles.actions}>
-            <Link href="/connexion" className={styles.btnConnexion}>Se connecter</Link>
-            <Link href="/inscription" className={styles.btnInscription}>S&apos;inscrire</Link>
+            <Link href="/connexion" className={styles.loginButton}>Se connecter</Link>
+            <Link href="/inscription" className={styles.registrationButton}>S&apos;inscrire</Link>
           </div>
         )}
 
         {/* Bouton menu, visible seulement sur mobile */}
         <button
           type="button"
-          className={styles.btnMenu}
+          className={styles.menuButton}
           aria-label="Menu"
-          aria-expanded={menuOuvert}
-          onClick={() => setMenuOuvert(!menuOuvert)}
+          aria-expanded={menuOpen}
+          onClick={() => setMenuOpen(!menuOpen)}
         >
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
             <path d="M4 6h16M4 12h16M4 18h16" />
@@ -92,25 +92,25 @@ export default function Header({ connecte = false }) {
       </div>
 
       {/* Menu déroulant mobile */}
-      {menuOuvert && (
-        <div className={styles.menuMobile}>
-          {connecte ? (
-            LIENS_CONNECTE.map((lien) => (
+      {menuOpen && (
+        <div className={styles.mobileMenu}>
+          {authenticated ? (
+            AUTHENTICATED_LINKS.map((link) => (
               <Link
-                key={lien.href}
-                href={lien.href}
-                className={estActif(lien.href) ? styles.lienNavActif : styles.lienNav}
-                onClick={() => setMenuOuvert(false)}
+                key={link.href}
+                href={link.href}
+                className={isActive(link.href) ? styles.activeNavLink : styles.navLink}
+                onClick={() => setMenuOpen(false)}
               >
-                {lien.label}
+                {link.label}
               </Link>
             ))
           ) : (
             <>
-              <Link href="/connexion" className={styles.btnConnexion} onClick={() => setMenuOuvert(false)}>
+              <Link href="/connexion" className={styles.loginButton} onClick={() => setMenuOpen(false)}>
                 Se connecter
               </Link>
-              <Link href="/inscription" className={styles.btnInscription} onClick={() => setMenuOuvert(false)}>
+              <Link href="/inscription" className={styles.registrationButton} onClick={() => setMenuOpen(false)}>
                 S&apos;inscrire
               </Link>
             </>

@@ -1,13 +1,15 @@
 package com.symphonia.backend.dto;
 
+import com.fasterxml.jackson.annotation.JsonAlias;
 import jakarta.validation.constraints.NotBlank;
 
 // Données envoyées par le formulaire de connexion
-public class ConnexionRequest {
+public class LoginRequest {
 
     @NotBlank(message = "L'email est obligatoire")
     private String email;
 
+    @JsonAlias("motDePasse")
     @NotBlank(message = "Le mot de passe est obligatoire")
     private String password;
 
@@ -19,11 +21,11 @@ public class ConnexionRequest {
         this.email = email;
     }
 
-    public String getMotDePasse() {
+    public String getPassword() {
         return password;
     }
 
-    public void setMotDePasse(String password) {
+    public void setPassword(String password) {
         this.password = password;
     }
 }

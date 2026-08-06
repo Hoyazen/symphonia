@@ -19,7 +19,7 @@ public class Invitation {
 
     @ManyToOne
     @JoinColumn(name="user_id", referencedColumnName="id")
-    private Utilisateur invitedUsed;
+    private User invitedUsed;
 
     public Long getId() {
         return id;
@@ -53,11 +53,11 @@ public class Invitation {
         this.dateSent = dateSent;
     }
 
-    public Utilisateur getInvitedUsed() {
+    public User getInvitedUsed() {
         return invitedUsed;
     }
 
-    public void setInvitedUsed(Utilisateur invitedUsed) {
+    public void setInvitedUsed(User invitedUsed) {
         this.invitedUsed = invitedUsed;
     }
 }

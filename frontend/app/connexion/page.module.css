@@ -7,14 +7,14 @@
   min-height: 70vh;
 }
 
-.conteneur {
+.container {
   width: 100%;
   max-width: 420px;
 }
 
 /* ===== En-tête (logo, titre, sous-titre) ===== */
 
-.enTete {
+.headerSection {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -22,12 +22,12 @@
   margin-bottom: 24px;
 }
 
-.titre {
+.title {
   font-size: 24px;
   margin: 14px 0 6px;
 }
 
-.sousTitre {
+.subtitle {
   margin: 0;
   font-size: 14px;
   color: var(--ink-soft);
@@ -35,7 +35,7 @@
 
 /* ===== Carte du formulaire ===== */
 
-.carte {
+.card {
   background: var(--paper);
   border: 1px solid var(--line);
   border-radius: 18px;
@@ -43,7 +43,7 @@
   padding: 24px;
 }
 
-.erreurGlobale {
+.globalError {
   margin: 0 0 16px;
   padding: 10px 14px;
   background: var(--doc-pdf-bg);
@@ -53,31 +53,31 @@
   font-weight: 600;
 }
 
-.lienOublie {
+.forgotPasswordLink {
   font-size: 12px;
   font-weight: 600;
   color: var(--ink);
 }
 
-.lienOublie:hover {
+.forgotPasswordLink:hover {
   color: var(--ink-soft);
 }
 
 /* ===== Bas de page ===== */
 
-.pasDeCompte {
+.noAccount {
   text-align: center;
   margin: 20px 0 0;
   font-size: 14px;
   color: var(--ink-soft);
 }
 
-.lienInscription {
+.registrationLink {
   font-weight: 700;
   color: var(--ink-soft);
 }
 
-.lienInscription:hover {
+.registrationLink:hover {
   color: var(--ink);
 }
 
@@ -90,27 +90,27 @@
 
 /* ===== Bureau (1025px et plus) ===== */
 @media (min-width: 1025px) {
-  .enTete {
+  .headerSection {
     margin-bottom: 26px;
   }
 
-  .titre {
+  .title {
     font-size: 28px;
   }
 
-  .sousTitre {
+  .subtitle {
     font-size: 15px;
   }
 
-  .carte {
+  .card {
     padding: 32px;
   }
 
-  .lienOublie {
+  .forgotPasswordLink {
     font-size: 13px;
   }
 
-  .pasDeCompte {
+  .noAccount {
     margin-top: 22px;
     font-size: 15px;
   }

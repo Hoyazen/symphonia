@@ -5,55 +5,55 @@ import { useSearchParams } from "next/navigation";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Logo from "@/components/Logo";
-import Bouton from "@/components/Bouton";
-import { validerCompte } from "@/lib/api";
+import Button from "@/components/Button";
+import { validateAccount } from "@/lib/api";
 import styles from "./page.module.css";
 
 // Contenu de la page, séparé pour pouvoir utiliser useSearchParams dans un Suspense
-function ContenuValidation() {
+function ValidationContent() {
   const searchParams = useSearchParams();
   const token = searchParams.get("token");
 
   // Si le token est absent dès le départ, inutile de passer par un effet
-  const [statut, setStatut] = useState(token ? "chargement" : "erreur"); // "chargement" | "succes" | "erreur"
+  const [status, setStatus] = useState(token ? "loading" : "error"); // "chargement" | "succes" | "erreur"
   const [message, setMessage] = useState(token ? "" : "Ce lien de validation est incomplet : aucun token n'a été trouvé.");
-  const dejaAppele = useRef(false); // évite un double appel (ex: React Strict Mode)
+  const alreadyCalled = useRef(false); // évite un double appel (ex: React Strict Mode)
 
   useEffect(() => {
-    if (!token || dejaAppele.current) return;
-    dejaAppele.current = true;
+    if (!token || alreadyCalled.current) return;
+    alreadyCalled.current = true;
 
-    validerCompte(token)
-      .then(() => setStatut("succes"))
+    validateAccount(token)
+      .then(() => setStatus("success"))
       .catch((err) => {
-        setStatut("erreur");
+        setStatus("error");
         setMessage(err.message);
       });
   }, [token]);
 
   return (
-    <div className={styles.carte}>
-      {statut === "chargement" && <p className={styles.texte}>Validation de ton compte en cours…</p>}
+    <div className={styles.card}>
+      {status === "loading" && <p className={styles.text}>Validation de ton compte en cours…</p>}
 
-      {statut === "succes" && (
+      {status === "success" && (
         <>
-          <h1 className={styles.titre}>Compte validé</h1>
-          <p className={styles.texte}>
+          <h1 className={styles.title}>Compte validé</h1>
+          <p className={styles.text}>
             Ton compte est validé, tu peux maintenant te connecter.
           </p>
-          <Bouton href="/connexion" variante="primaire" taille="grande" pleineLargeur>
+          <Button href="/connexion" variant="primary" size="large" fullWidth>
             Se connecter
-          </Bouton>
+          </Button>
         </>
       )}
 
-      {statut === "erreur" && (
+      {status === "error" && (
         <>
-          <h1 className={styles.titre}>Validation impossible</h1>
-          <p className={styles.erreurTexte}>{message}</p>
-          <Bouton href="/inscription" variante="secondaire" taille="grande" pleineLargeur>
+          <h1 className={styles.title}>Validation impossible</h1>
+          <p className={styles.errorText}>{message}</p>
+          <Button href="/inscription" variant="secondary" size="large" fullWidth>
             Retour à l&apos;inscription
-          </Bouton>
+          </Button>
         </>
       )}
     </div>
@@ -61,17 +61,17 @@ function ContenuValidation() {
 }
 
 // Page de validation de compte, ouverte depuis le lien reçu par email
-export default function ValiderCompte() {
+export default function ValidateAccountPage() {
   return (
     <>
       <Header />
       <main className={styles.page}>
-        <div className={styles.conteneur}>
-          <div className={styles.enTete}>
-            <Logo taille={48} />
+        <div className={styles.container}>
+          <div className={styles.headerSection}>
+            <Logo size={48} />
           </div>
-          <Suspense fallback={<div className={styles.carte}><p className={styles.texte}>Chargement…</p></div>}>
-            <ContenuValidation />
+          <Suspense fallback={<div className={styles.card}><p className={styles.text}>Chargement…</p></div>}>
+            <ValidationContent />
           </Suspense>
         </div>
       </main>

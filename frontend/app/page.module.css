@@ -19,20 +19,20 @@
   margin-bottom: 16px;
 }
 
-.titre {
+.title {
   font-size: 31px;
   line-height: 1.1;
   margin: 0 0 14px;
 }
 
-.sousTitre {
+.subtitle {
   font-size: 16px;
   line-height: 1.55;
   color: var(--ink-soft);
   margin: 0 0 22px;
 }
 
-.heroBoutons {
+.heroButtons {
   display: flex;
   flex-direction: column;
   gap: 11px;
@@ -45,7 +45,7 @@
 
 /* ===== Aperçu de fiche morceau (illustration du héro) ===== */
 
-.carteApercu {
+.previewCard {
   background: var(--paper);
   border: 1px solid var(--line);
   border-radius: 20px;
@@ -54,7 +54,7 @@
   transform: rotate(-1.5deg);
 }
 
-.carteApercuKicker {
+.previewCardKicker {
   font-size: 12px;
   font-weight: 700;
   color: var(--ink-faint);
@@ -63,31 +63,31 @@
   margin-bottom: 5px;
 }
 
-.carteApercuTitre {
+.previewCardTitle {
   font-size: 22px;
   font-weight: 800;
   letter-spacing: -0.02em;
 }
 
-.carteApercuSousTitre {
+.previewCardSubtitle {
   font-size: 14px;
   color: var(--ink-soft);
   margin: 0 0 16px;
 }
 
-.pastilles {
+.pills {
   display: flex;
   gap: 8px;
   margin-bottom: 16px;
 }
 
-.pastille {
+.pill {
   width: 9px;
   height: 9px;
   border-radius: 999px;
 }
 
-.lecteur {
+.player {
   display: flex;
   align-items: center;
   gap: 12px;
@@ -96,7 +96,7 @@
   border-radius: 13px;
 }
 
-.lecteurBouton {
+.playerButton {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -108,7 +108,7 @@
   color: var(--ink);
 }
 
-.lecteurBarre {
+.playerBar {
   flex: 1;
   height: 6px;
   border-radius: 999px;
@@ -116,20 +116,20 @@
   overflow: hidden;
 }
 
-.lecteurBarreRemplie {
+.playerBarFill {
   width: 38%;
   height: 100%;
   background: var(--yellow);
 }
 
-.lecteurTemps {
+.playerTime {
   font-size: 12px;
   font-weight: 600;
   color: #8a5f00;
 }
 
 /* Petite carte "Soprano.pdf" flottante sur l'aperçu */
-.carteFichier {
+.fileCard {
   position: absolute;
   bottom: -22px;
   left: -18px;
@@ -144,7 +144,7 @@
   transform: rotate(2deg);
 }
 
-.carteFichierIcone {
+.fileCardIcon {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -156,23 +156,23 @@
   color: var(--doc-pdf);
 }
 
-.carteFichierNom {
+.fileCardName {
   font-size: 13px;
   font-weight: 700;
 }
 
-.carteFichierAuteur {
+.fileCardAuthor {
   font-size: 11px;
   color: var(--ink-faint);
 }
 
 /* ===== Section des trois bénéfices ===== */
 
-.benefices {
+.benefits {
   padding: 26px 20px 32px;
 }
 
-.beneficesTitre {
+.benefitsTitle {
   font-size: 15px;
   font-weight: 700;
   color: var(--ink-faint);
@@ -182,13 +182,13 @@
   margin: 0 0 24px;
 }
 
-.beneficesGrille {
+.benefitsGrid {
   display: grid;
   grid-template-columns: 1fr;
   gap: 14px;
 }
 
-.beneficeCarte {
+.benefitCard {
   background: var(--cream);
   border: 1px solid var(--line);
   border-radius: 14px;
@@ -198,7 +198,7 @@
   align-items: flex-start;
 }
 
-.beneficeIcone {
+.benefitIcon {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -210,14 +210,14 @@
   color: #8a5f00;
 }
 
-.beneficeCarte h3 {
+.benefitCard h3 {
   font-size: 17px;
   font-weight: 800;
   letter-spacing: -0.02em;
   margin: 0 0 4px;
 }
 
-.beneficeCarte p {
+.benefitCard p {
   margin: 0;
   font-size: 14px;
   line-height: 1.5;
@@ -230,24 +230,24 @@
     padding: 48px 40px;
   }
 
-  .titre {
+  .title {
     font-size: 38px;
   }
 
-  .sousTitre {
+  .subtitle {
     font-size: 17px;
     max-width: 60ch;
   }
 
-  .heroBoutons {
+  .heroButtons {
     flex-direction: row;
   }
 
-  .benefices {
+  .benefits {
     padding: 40px 40px 48px;
   }
 
-  .beneficesGrille {
+  .benefitsGrid {
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
   }
@@ -267,20 +267,20 @@
     margin-bottom: 22px;
   }
 
-  .titre {
+  .title {
     font-size: 46px;
     line-height: 1.08;
     margin-bottom: 20px;
   }
 
-  .sousTitre {
+  .subtitle {
     font-size: 18px;
     line-height: 1.6;
     max-width: 46ch;
     margin-bottom: 30px;
   }
 
-  .heroBoutons {
+  .heroButtons {
     gap: 14px;
   }
 
@@ -289,34 +289,34 @@
     position: relative;
   }
 
-  .benefices {
+  .benefits {
     padding: 56px 40px 60px;
   }
 
-  .beneficesGrille {
+  .benefitsGrid {
     grid-template-columns: repeat(3, 1fr);
     gap: 24px;
   }
 
-  .beneficeCarte {
+  .benefitCard {
     flex-direction: column;
     border-radius: var(--r);
     padding: 28px;
   }
 
-  .beneficeIcone {
+  .benefitIcon {
     width: 48px;
     height: 48px;
     border-radius: 13px;
     margin-bottom: 16px;
   }
 
-  .beneficeCarte h3 {
+  .benefitCard h3 {
     font-size: 19px;
     margin-bottom: 8px;
   }
 
-  .beneficeCarte p {
+  .benefitCard p {
     font-size: 15px;
     line-height: 1.55;
   }

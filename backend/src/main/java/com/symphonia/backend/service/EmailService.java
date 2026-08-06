@@ -13,22 +13,22 @@ public class EmailService {
 
     // Même origine que celle autorisée en CORS : c'est l'URL du frontend
     @Value("${app.cors.origin}")
-    private String urlFrontend;
+    private String frontendUrl;
 
     public EmailService(JavaMailSender mailSender) {
         this.mailSender = mailSender;
     }
 
-    public void envoyerEmailValidation(String destinataire, String prenom, String token) {
-        String lien = urlFrontend + "/valider-compte?token=" + token;
+    public void sendValidationEmail(String recipient, String firstName, String token) {
+        String validationLink = frontendUrl + "/valider-compte?token=" + token;
 
         SimpleMailMessage message = new SimpleMailMessage();
         message.setFrom("no-reply@symphonia.local");
-        message.setTo(destinataire);
+        message.setTo(recipient);
         message.setSubject("Valide ton compte Symphonia");
-        message.setText("Bonjour " + prenom + ",\n\n"
+        message.setText("Bonjour " + firstName + ",\n\n"
                 + "Merci de ton inscription sur Symphonia !\n"
-                + "Clique sur ce lien pour valider ton compte :\n" + lien + "\n\n"
+                + "Clique sur ce lien pour valider ton compte :\n" + validationLink + "\n\n"
                 + "Si tu n'es pas à l'origine de cette inscription, ignore cet email.");
 
         mailSender.send(message);

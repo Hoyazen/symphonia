@@ -1,4 +1,4 @@
-.carte {
+.card {
   display: block;
   background: var(--paper);
   border: 1px solid var(--line);
@@ -10,19 +10,19 @@
   transition: box-shadow 0.15s, transform 0.15s;
 }
 
-.carte:hover {
+.card:hover {
   box-shadow: var(--sh-lg);
   transform: translateY(-2px);
 }
 
-.carteHaut {
+.cardTop {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
   margin-bottom: 14px;
 }
 
-.carteIcone {
+.cardIcon {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -34,47 +34,47 @@
   color: #8a5f00;
 }
 
-.carteGenre {
+.cardGenre {
   padding: 4px 10px;
   border-radius: 8px;
   font-size: 11.5px;
   font-weight: 600;
 }
 
-.carteTitre {
+.cardTitle {
   font-size: 18px;
   margin: 0 0 3px;
 }
 
-.carteCompositeur {
+.cardComposer {
   margin: 0 0 14px;
   font-size: 14px;
   color: var(--ink-soft);
 }
 
-.carteBas,
-.carteBasSeul {
+.cardBottom,
+.cardBottomAlone {
   display: flex;
   align-items: center;
   border-top: 1px solid var(--line-soft);
   padding-top: 12px;
 }
 
-.carteBas {
+.cardBottom {
   justify-content: space-between;
 }
 
-.carteBasSeul {
+.cardBottomAlone {
   justify-content: flex-end;
 }
 
-.carteEnsemble,
-.carteDocuments {
+.cardEnsemble,
+.cardDocuments {
   font-size: 12.5px;
   color: var(--ink-faint);
 }
 
-.carteDocuments {
+.cardDocuments {
   display: inline-flex;
   align-items: center;
   gap: 5px;

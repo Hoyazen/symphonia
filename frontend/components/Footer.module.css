@@ -9,7 +9,7 @@
   text-align: center;
 }
 
-.marque {
+.brand {
   display: flex;
   align-items: center;
   gap: 10px;
@@ -17,12 +17,12 @@
   font-weight: 700;
 }
 
-.liens {
+.links {
   font-size: 13px;
   color: var(--ink-soft);
 }
 
-.liens a:hover {
+.links a:hover {
   color: var(--ink);
 }
 
@@ -40,7 +40,7 @@
     text-align: left;
   }
 
-  .liens {
+  .links {
     font-size: 14px;
   }
 

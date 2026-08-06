@@ -5,24 +5,24 @@
   justify-content: center;
 }
 
-.conteneur {
+.container {
   width: 100%;
   max-width: 520px;
 }
 
 /* ===== En-tête (logo, titre, sous-titre) ===== */
 
-.enTete {
+.headerSection {
   text-align: center;
   margin-bottom: 20px;
 }
 
-.titre {
+.title {
   font-size: 23px;
   margin: 12px 0 5px;
 }
 
-.sousTitre {
+.subtitle {
   margin: 0;
   font-size: 13px;
   color: var(--ink-soft);
@@ -30,7 +30,7 @@
 
 /* ===== Carte du formulaire ===== */
 
-.carte {
+.card {
   background: var(--paper);
   border: 1px solid var(--line);
   border-radius: 18px;
@@ -39,14 +39,14 @@
 }
 
 /* Ligne "photo de profil" */
-.photoLigne {
+.profilePhotoRow {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-bottom: 18px;
 }
 
-.photoAvatar {
+.profilePhotoAvatar {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -60,19 +60,19 @@
   margin-bottom: 9px;
 }
 
-.photoTexte {
+.profilePhotoText {
   font-size: 14px;
   font-weight: 700;
   margin-bottom: 3px;
   text-align: center;
 }
 
-.photoOptionnel {
+.optionalProfilePhoto {
   color: var(--ink-faint);
   font-weight: 500;
 }
 
-.photoBouton {
+.profilePhotoButton {
   padding: 7px 13px;
   background: var(--paper);
   border: 1.5px solid var(--line);
@@ -84,47 +84,47 @@
   cursor: pointer;
 }
 
-.photoBouton:hover {
+.profilePhotoButton:hover {
   border-color: var(--yellow);
   background: var(--yellow-tint);
 }
 
 /* Grille à 2 colonnes (Prénom/Nom, Mot de passe/Confirmation) */
-.grille2 {
+.twoColumnGrid {
   display: grid;
   grid-template-columns: 1fr;
   gap: 0;
 }
 
 /* Sur mobile, la maquette ne montre pas le champ de confirmation */
-.confirmationChamp {
+.confirmationField {
   display: none;
 }
 
 /* ===== Règles du mot de passe ===== */
 
-.reglesBoite {
+.rulesBox {
   margin: 12px 0 16px;
   padding: 12px 14px;
   background: var(--cream);
   border-radius: 12px;
 }
 
-.reglesTitre {
+.rulesTitle {
   font-size: 12px;
   font-weight: 700;
   color: var(--ink-soft);
   margin-bottom: 10px;
 }
 
-.reglesListe {
+.rulesList {
   display: flex;
   flex-direction: column;
   gap: 6px;
 }
 
-.regleValide,
-.regleAttente {
+.validRule,
+.pendingRule {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -132,15 +132,15 @@
   font-weight: 600;
 }
 
-.regleValide {
+.validRule {
   color: var(--ten);
 }
 
-.regleAttente {
+.pendingRule {
   color: var(--ink-faint);
 }
 
-.regleRond {
+.ruleCircle {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -150,18 +150,18 @@
   border-radius: 999px;
 }
 
-.regleValide .regleRond {
+.validRule .ruleCircle {
   background: var(--ten);
   color: #fff;
 }
 
-.regleAttente .regleRond {
+.pendingRule .ruleCircle {
   border: 1.5px solid var(--ink-faint);
 }
 
 /* ===== Case CGU ===== */
 
-.cguLigne {
+.termsRow {
   position: relative;
   display: flex;
   align-items: flex-start;
@@ -171,7 +171,7 @@
 }
 
 /* Case native cachée visuellement, mais toujours utilisable/accessible */
-.cguInput {
+.termsInput {
   position: absolute;
   top: 0;
   left: 0;
@@ -182,7 +182,7 @@
   cursor: pointer;
 }
 
-.cguCoche {
+.termsCheckmark {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -195,35 +195,35 @@
   color: transparent;
 }
 
-.cguInput:checked + .cguCoche {
+.termsInput:checked + .termsCheckmark {
   background: var(--yellow);
   border-color: var(--yellow);
   color: var(--ink);
 }
 
-.cguInput:focus-visible + .cguCoche {
+.termsInput:focus-visible + .termsCheckmark {
   outline: 2px solid var(--yellow);
   outline-offset: 2px;
 }
 
-.cguTexte {
+.termsText {
   font-size: 13px;
   line-height: 1.4;
   color: var(--ink-soft);
 }
 
-.cguLien {
+.termsLink {
   font-weight: 700;
   color: var(--ink-soft);
 }
 
-.cguLien:hover {
+.termsLink:hover {
   color: var(--ink);
 }
 
 /* ===== Message d'erreur global ===== */
 
-.erreurGlobale {
+.globalError {
   margin: 0 0 16px;
   padding: 10px 14px;
   background: var(--doc-pdf-bg);
@@ -235,18 +235,18 @@
 
 /* ===== Boîte de succès (après inscription) ===== */
 
-.succesBoite {
+.successBox {
   text-align: center;
 }
 
-.succesTitre {
+.successTitle {
   font-size: 18px;
   font-weight: 700;
   margin: 0 0 8px;
   color: var(--ten);
 }
 
-.succesTexte {
+.successText {
   margin: 0 0 18px;
   font-size: 14px;
   color: var(--ink-soft);
@@ -255,26 +255,26 @@
 
 /* ===== Bas de page ===== */
 
-.mentionEmail {
+.emailNote {
   text-align: center;
   margin: 12px 0 0;
   font-size: 12px;
   color: var(--ink-faint);
 }
 
-.dejaInscrit {
+.alreadyRegistered {
   text-align: center;
   margin: 20px 0 0;
   font-size: 14px;
   color: var(--ink-soft);
 }
 
-.dejaInscritLien {
+.alreadyRegisteredLink {
   font-weight: 700;
   color: var(--ink-soft);
 }
 
-.dejaInscritLien:hover {
+.alreadyRegisteredLink:hover {
   color: var(--ink);
 }
 
@@ -284,35 +284,35 @@
     padding: 48px 24px;
   }
 
-  .grille2 {
+  .twoColumnGrid {
     grid-template-columns: 1fr 1fr;
     gap: 14px;
   }
 
-  .confirmationChamp {
+  .confirmationField {
     display: block;
   }
 
-  .reglesBoite {
+  .rulesBox {
     padding: 14px 16px;
   }
 
-  .regleValide,
-  .regleAttente {
+  .validRule,
+  .pendingRule {
     font-size: 13px;
     gap: 9px;
   }
 
-  .regleRond {
+  .ruleCircle {
     width: 18px;
     height: 18px;
   }
 
-  .cguLigne {
+  .termsRow {
     gap: 11px;
   }
 
-  .cguTexte {
+  .termsText {
     font-size: 14px;
   }
 }
@@ -323,49 +323,49 @@
     padding: 52px;
   }
 
-  .enTete {
+  .headerSection {
     margin-bottom: 24px;
   }
 
-  .titre {
+  .title {
     font-size: 28px;
   }
 
-  .sousTitre {
+  .subtitle {
     font-size: 15px;
   }
 
-  .carte {
+  .card {
     padding: 32px;
   }
 
-  .photoLigne {
+  .profilePhotoRow {
     flex-direction: row;
     align-items: center;
     gap: 16px;
     margin-bottom: 22px;
   }
 
-  .photoAvatar {
+  .profilePhotoAvatar {
     width: 66px;
     height: 66px;
     margin-bottom: 0;
   }
 
-  .photoTexte {
+  .profilePhotoText {
     text-align: left;
   }
 
-  .photoBouton {
+  .profilePhotoButton {
     padding: 8px 14px;
     font-size: 13px;
   }
 
-  .reglesBoite {
+  .rulesBox {
     margin: 16px 0 20px;
   }
 
-  .cguLigne {
+  .termsRow {
     margin-bottom: 22px;
   }
 }

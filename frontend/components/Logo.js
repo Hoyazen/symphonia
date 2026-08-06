@@ -1,22 +1,22 @@
 // Icône + nom "Symphonia", réutilisé dans le Header et le Footer
-export default function Logo({ taille = 36 }) {
+export default function Logo({ size = 36 }) {
   return (
     <span
       style={{
         display: "inline-flex",
         alignItems: "center",
         justifyContent: "center",
-        width: taille,
-        height: taille,
+        width: size,
+        height: size,
         background: "var(--yellow)",
-        borderRadius: taille * 0.28,
+        borderRadius: size * 0.28,
         color: "var(--ink)",
         flex: "none",
       }}
     >
       <svg
-        width={taille * 0.58}
-        height={taille * 0.58}
+        width={size * 0.58}
+        height={size * 0.58}
         viewBox="0 0 24 24"
         fill="none"
         stroke="currentColor"

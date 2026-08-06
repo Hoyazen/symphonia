@@ -5,12 +5,12 @@ import styles from "./Footer.module.css";
 export default function Footer() {
   return (
     <footer className={styles.footer}>
-      <div className={styles.marque}>
-        <Logo taille={28} />
+      <div className={styles.brand}>
+        <Logo size={28} />
         Symphonia
       </div>
 
-      <div className={styles.liens}>
+      <div className={styles.links}>
         <a href="#">À propos</a> · <a href="#">Confidentialité</a> · <a href="#">Contact</a>
       </div>
 

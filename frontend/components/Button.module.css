@@ -1,4 +1,4 @@
-.bouton {
+.buttonStyle {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -13,22 +13,22 @@
   white-space: nowrap;
 }
 
-.primaire {
+.primary {
   background: var(--yellow);
   color: var(--ink);
 }
 
-.primaire:hover {
+.primary:hover {
   background: color-mix(in srgb, var(--yellow) 86%, black);
 }
 
-.secondaire {
+.secondary {
   background: var(--paper);
   color: var(--ink);
   border: 1.5px solid var(--line);
 }
 
-.secondaire:hover {
+.secondary:hover {
   border-color: var(--yellow);
   background: var(--yellow-tint);
 }
@@ -45,22 +45,22 @@
 }
 
 /* Grand bouton utilisé pour les appels à l'action du héro */
-.grande {
+.large {
   padding: 15px 26px;
   border-radius: 13px;
   font-size: 16px;
   font-weight: 700;
 }
 
-.grande.primaire {
+.large.primary {
   padding: 15px 28px;
 }
 
-.pleineLargeur {
+.fullWidth {
   width: 100%;
 }
 
-.bouton:disabled {
+.buttonStyle:disabled {
   opacity: 0.5;
   cursor: not-allowed;
 }

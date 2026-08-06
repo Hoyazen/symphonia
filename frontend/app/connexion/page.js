@@ -6,36 +6,36 @@ import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Logo from "@/components/Logo";
-import ChampFormulaire from "@/components/ChampFormulaire";
-import Bouton from "@/components/Bouton";
-import { connecter } from "@/lib/api";
+import FormField from "@/components/FormField";
+import Button from "@/components/Button";
+import { login } from "@/lib/api";
 import styles from "./page.module.css";
 
 // Page de connexion
-export default function Connexion() {
+export default function LoginPage() {
   const router = useRouter();
 
   const [email, setEmail] = useState("");
-  const [motDePasse, setMotDePasse] = useState("");
-  const [erreur, setErreur] = useState(null);
-  const [chargement, setChargement] = useState(false);
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   async function handleSubmit(e) {
     e.preventDefault();
 
-    setErreur(null);
-    setChargement(true);
+    setError(null);
+    setLoading(true);
     try {
-      const reponse = await connecter({ email, motDePasse });
-      localStorage.setItem("symphonia_token", reponse.token);
+      const response = await login({ email, password });
+      localStorage.setItem("symphonia_token", response.token);
       localStorage.setItem(
-        "symphonia_utilisateur",
-        JSON.stringify({ email: reponse.email, prenom: reponse.prenom, nom: reponse.nom, role: reponse.role })
+        "symphonia_user",
+        JSON.stringify({ email: response.email, firstName: response.firstName, lastName: response.lastName, role: response.role })
       );
       router.push("/tableau-de-bord");
     } catch (err) {
-      setErreur(err.message);
-      setChargement(false);
+      setError(err.message);
+      setLoading(false);
     }
   }
 
@@ -43,17 +43,17 @@ export default function Connexion() {
     <>
       <Header />
       <main className={styles.page}>
-        <div className={styles.conteneur}>
-          <div className={styles.enTete}>
-            <Logo taille={48} />
-            <h1 className={styles.titre}>Content de vous revoir</h1>
-            <p className={styles.sousTitre}>Connectez-vous pour retrouver vos morceaux.</p>
+        <div className={styles.container}>
+          <div className={styles.headerSection}>
+            <Logo size={48} />
+            <h1 className={styles.title}>Content de vous revoir</h1>
+            <p className={styles.subtitle}>Connectez-vous pour retrouver vos morceaux.</p>
           </div>
 
-          <div className={styles.carte}>
+          <div className={styles.card}>
             <form onSubmit={handleSubmit}>
-              {erreur && <p className={styles.erreurGlobale}>{erreur}</p>}
-              <ChampFormulaire
+              {error && <p className={styles.globalError}>{error}</p>}
+              <FormField
                 id="email"
                 label="Adresse e-mail"
                 type="email"
@@ -63,29 +63,29 @@ export default function Connexion() {
                 required
               />
 
-              <ChampFormulaire
-                id="motDePasse"
+              <FormField
+                id="password"
                 label="Mot de passe"
                 type="password"
-                value={motDePasse}
-                onChange={(e) => setMotDePasse(e.target.value)}
-                lienEtiquette={
-                  <a href="#" className={styles.lienOublie}>
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                labelLink={
+                  <a href="#" className={styles.forgotPasswordLink}>
                     Mot de passe oublié ?
                   </a>
                 }
                 required
               />
 
-              <Bouton type="submit" variante="primaire" taille="grande" pleineLargeur disabled={chargement}>
-                {chargement ? "Connexion en cours…" : "Se connecter"}
-              </Bouton>
+              <Button type="submit" variant="primary" size="large" fullWidth disabled={loading}>
+                {loading ? "Connexion en cours…" : "Se connecter"}
+              </Button>
             </form>
           </div>
 
-          <p className={styles.pasDeCompte}>
+          <p className={styles.noAccount}>
             Pas encore de compte ?{" "}
-            <Link href="/inscription" className={styles.lienInscription}>
+            <Link href="/inscription" className={styles.registrationLink}>
               Créer un compte
             </Link>
           </p>

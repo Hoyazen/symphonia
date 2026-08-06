@@ -1,16 +1,16 @@
 /* ===== Zone d'accueil personnalisé ===== */
 
-.zoneAccueil {
+.welcomeArea {
   background: var(--cream);
   padding: 24px 18px;
 }
 
-.salutation {
+.greeting {
   font-size: 24px;
   margin: 0 0 4px;
 }
 
-.sousTitreAccueil {
+.homeSubtitle {
   margin: 0;
   font-size: 14px;
   color: var(--ink-soft);
@@ -18,18 +18,18 @@
 
 /* ===== Zone de contenu (ensembles + ajouts récents) ===== */
 
-.zoneContenu {
+.contentArea {
   background: var(--paper);
   padding: 20px 18px 40px;
 }
 
-.grillePrincipale {
+.mainGrid {
   display: flex;
   flex-direction: column;
   gap: 28px;
 }
 
-.enTeteSection {
+.sectionHeader {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -38,27 +38,27 @@
   margin-bottom: 16px;
 }
 
-.titreSection {
+.sectionTitle {
   font-size: 17px;
   margin: 0;
 }
 
 /* Le bouton "Créer un ensemble" prend toute la largeur sur mobile */
-.boutonCreer a,
-.boutonCreer button {
+.createButton a,
+.createButton button {
   width: 100%;
   margin-top: 12px;
 }
 
 /* ===== Grille des ensembles ===== */
 
-.ensemblesGrille {
+.ensembleGrid {
   display: grid;
   grid-template-columns: 1fr;
   gap: 14px;
 }
 
-.carteEnsemble {
+.cardEnsemble {
   display: block;
   background: var(--paper);
   border: 1px solid var(--line);
@@ -71,38 +71,38 @@
   transition: box-shadow 0.15s, transform 0.15s;
 }
 
-.carteEnsemble:hover {
+.cardEnsemble:hover {
   box-shadow: var(--sh-lg);
   transform: translateY(-2px);
 }
 
-.carteBarre {
+.cardBar {
   height: 7px;
 }
 
-.carteCorps {
+.cardBody {
   padding: 17px;
 }
 
-.carteNom {
+.cardName {
   font-size: 17px;
   margin: 0 0 3px;
 }
 
-.carteMeta {
+.cardMeta {
   font-size: 12.5px;
   color: var(--ink-faint);
   margin-bottom: 11px;
 }
 
-.carteBadges {
+.cardBadges {
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
 }
 
 /* Carte "Nouvel ensemble" en pointillés, à la fin de la grille */
-.carteVide {
+.emptyCard {
   border: 2px dashed var(--line);
   border-radius: var(--r);
   background: var(--cream);
@@ -119,13 +119,13 @@
   text-align: center;
 }
 
-.carteVide:hover {
+.emptyCard:hover {
   border-color: var(--yellow);
   background: var(--yellow-tint);
   color: var(--ink);
 }
 
-.carteVideIcone {
+.emptyCardIcon {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -136,19 +136,19 @@
   color: var(--ink);
 }
 
-.carteVideTitre {
+.emptyCardTitle {
   font-size: 14px;
   font-weight: 700;
 }
 
-.carteVideTexte {
+.emptyCardText {
   font-size: 13px;
   max-width: 22ch;
 }
 
 /* ===== État encourageant (aucun ensemble) ===== */
 
-.etatVide {
+.emptyState {
   border: 2px dashed var(--line);
   border-radius: var(--r);
   background: var(--cream);
@@ -160,7 +160,7 @@
   gap: 10px;
 }
 
-.etatVideIcone {
+.emptyStateIcon {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -172,12 +172,12 @@
   margin-bottom: 4px;
 }
 
-.etatVideTitre {
+.emptyStateTitle {
   font-size: 17px;
   margin: 0;
 }
 
-.etatVideTexte {
+.emptyStateText {
   margin: 0 0 8px;
   font-size: 14px;
   color: var(--ink-soft);
@@ -195,12 +195,12 @@
   margin-top: 12px;
 }
 
-.asideTitre {
+.asideTitle {
   margin: 0 0 16px;
   font-size: 17px;
 }
 
-.asideListe {
+.asideList {
   display: flex;
   flex-direction: column;
   gap: 4px;
@@ -217,7 +217,7 @@
   background: var(--cream);
 }
 
-.asideIcone {
+.asideIcon {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -227,7 +227,7 @@
   border-radius: 10px;
 }
 
-.asideItemTitre {
+.asideItemTitle {
   font-size: 14px;
   font-weight: 700;
 }
@@ -239,20 +239,20 @@
 
 /* ===== Tablette (601-1024px) ===== */
 @media (min-width: 601px) {
-  .zoneAccueil {
+  .welcomeArea {
     padding: 32px 32px 0;
   }
 
-  .zoneContenu {
+  .contentArea {
     padding: 24px 32px 40px;
   }
 
-  .boutonCreer a,
-  .boutonCreer button {
+  .createButton a,
+  .createButton button {
     width: auto;
   }
 
-  .ensemblesGrille {
+  .ensembleGrid {
     grid-template-columns: repeat(2, 1fr);
     gap: 18px;
   }
@@ -260,38 +260,38 @@
 
 /* ===== Bureau (1025px et plus) ===== */
 @media (min-width: 1025px) {
-  .zoneAccueil {
+  .welcomeArea {
     padding: 40px 32px 32px;
   }
 
-  .salutation {
+  .greeting {
     font-size: 30px;
   }
 
-  .sousTitreAccueil {
+  .homeSubtitle {
     font-size: 16px;
   }
 
-  .zoneContenu {
+  .contentArea {
     padding: 0 32px 40px;
   }
 
-  .titreSection {
+  .sectionTitle {
     font-size: 19px;
   }
 
-  .grillePrincipale {
+  .mainGrid {
     display: grid;
     grid-template-columns: 1fr 320px;
     gap: 28px;
     align-items: start;
   }
 
-  .carteNom {
+  .cardName {
     font-size: 18px;
   }
 
-  .carteMeta {
+  .cardMeta {
     font-size: 13px;
   }
 }
