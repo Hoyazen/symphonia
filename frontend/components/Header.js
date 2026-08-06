@@ -38,7 +38,7 @@ export default function Header({ authenticated = false }) {
       <div className={styles.leftGroup}>
         <Link href={authenticated ? "/tableau-de-bord" : "/"} className={styles.brand}>
           <Logo size={32} />
-          Symphonia by AD et Maxii
+          ymphonia
         </Link>
 
         {authenticated && (

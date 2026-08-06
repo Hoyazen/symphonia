@@ -23,7 +23,6 @@
 .brand {
   display: flex;
   align-items: center;
-  gap: 9px;
   font-size: 17px;
   font-weight: 800;
   letter-spacing: -0.03em;
@@ -179,7 +178,6 @@
 
   .brand {
     font-size: 20px;
-    gap: 11px;
   }
 
   .actions {

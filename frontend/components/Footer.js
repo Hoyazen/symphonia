@@ -7,7 +7,7 @@ export default function Footer() {
     <footer className={styles.footer}>
       <div className={styles.brand}>
         <Logo size={28} />
-        Symphonia
+        ymphonia
       </div>
 
       <div className={styles.links}>
