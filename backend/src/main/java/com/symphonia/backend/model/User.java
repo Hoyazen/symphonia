@@ -1,6 +1,7 @@
 package com.symphonia.backend.model;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 import jakarta.persistence.*;
 
@@ -23,8 +24,6 @@ public class User {
     @Column(name = "last_name")
     private String lastName;
 
-    private String role;
-
     @Column(name = "validated")
     private boolean emailValidated;
 
@@ -39,6 +38,9 @@ public class User {
 
     @Column(name = "super_admin")
     private boolean superAdmin;
+
+    @OneToMany(targetEntity = Ensemble.class, mappedBy = "creator")
+    List<Ensemble> createdEnsembles;
 
     public Long getId() {
         return id;
@@ -78,14 +80,6 @@ public class User {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
-    }
-
-    public String getRole() {
-        return role;
-    }
-
-    public void setRole(String role) {
-        this.role = role;
     }
 
     public boolean isEmailValidated() {

@@ -1,5 +1,5 @@
 // Icône Symphonia
-export default function Logo({ height = 36 }) {
+export default function Logo({ height = 55 }) {
   return (
     <svg
       height={height}
