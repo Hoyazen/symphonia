@@ -12,7 +12,7 @@
     </parent>
 
     <groupId>com.symphonia</groupId>
-    <artifactId>backend</artifactId>
+    <artifactId>symphonia_backend</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>backend</name>
     <description>API Symphonia</description>
