@@ -22,7 +22,7 @@ services:
       # ports:
       # - "8000:8000"
     env_file:
-      - .env      # "depends_on" permet d'indiquer que le conteneur api doit attendre le lancement du conteneur "PostgreSQL" avant de démarrer
+      - .env # "depends_on" permet d'indiquer que le conteneur api doit attendre le lancement du conteneur "PostgreSQL" avant de démarrer
     environment:
       - SPRING_PROFILES_ACTIVE=prod
     depends_on:
