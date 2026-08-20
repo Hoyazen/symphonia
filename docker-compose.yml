@@ -40,6 +40,11 @@ services:
     volumes:
       # - symphonia_pg_data:/var/lib/postgresql/data
       - ./database/init.sql:/docker-entrypoint-initdb.d/init.sql
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U postgres" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
   # Serveur mail de test (pour voir les emails envoyés par le backend)
   mailpit:
@@ -64,6 +69,3 @@ services:
     depends_on:
       - symphonia_front
       - symphonia_back
-
-volumes:
-  symphonia_pg_data:

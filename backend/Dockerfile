@@ -8,6 +8,7 @@ FROM maven:3.9.16-eclipse-temurin-21-alpine as builder
 WORKDIR /opt/symphonia_backend
 # copie uniquement du pom.xml dans le conteneur
 COPY pom.xml .
+COPY .env.properties .
 # copie du code source
 COPY ./src ./src
 # compilation du projet (sans les tests) et création d'un .jar
@@ -19,4 +20,8 @@ FROM eclipse-temurin:21-alpine
 EXPOSE 8000/tcp
 WORKDIR /opt/symphonia_backend
 COPY --from=builder /opt/symphonia_backend/target/symphonia_backend-0.0.1-SNAPSHOT.jar symphonia_backend-0.0.1-SNAPSHOT.jar
-ENTRYPOINT ["java","-jar","/opt/symphonia_backend/symphonia_backend-0.0.1-SNAPSHOT.jar"]
+
+# Copie du .env
+COPY --from=builder /opt/symphonia_backend/.env.properties .
+
+ENTRYPOINT ["java","-jar","/opt/symphonia_backend/symphonia_backend-0.0.1-SNAPSHOT.jar", "--spring.profiles.active=prod"]
