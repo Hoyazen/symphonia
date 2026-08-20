@@ -30,7 +30,7 @@ const MEMBERS = [
   { id: 1, lastName: "Claire Dubois", initials: "CD", instrument: "soprano", role: "Administratrice" },
   { id: 2, lastName: "Sophie Marchand", initials: "SM", instrument: "alto", role: "Membre" },
   { id: 3, lastName: "Julien Roy", initials: "JR", instrument: "tenor", role: "Membre" },
-  { id: 4, lastName: "Pierre Girard", initials: "PG", instrument: "basse", role: "Membre" },
+  { id: 4, lastName: "Pierre Girard", initials: "PG", instrument: "bass", role: "Membre" },
 ];
 
 // Invitations envoyées, en attente ou acceptées

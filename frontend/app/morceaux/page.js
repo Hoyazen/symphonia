@@ -124,6 +124,11 @@ export default function SongDetailsPage() {
   const [videoOpen, setVideoOpen] = useState(false);
   const audioRef = useRef(null);
 
+  // TODO pour le moment le chargement des informations n'est pas dynamique
+  // aucune requête vers le backend
+  // il faudra mettre en plus un "useEffect" pour déclencher la requête de récupération du morceau concerné
+  // L'identifiant du morceau devra être passé en paramètre de la route "/morceai?id=1" par exemple
+
   function togglePlayback() {
     if (!audioRef.current) return;
     if (currentAudio) audioRef.current.pause();
