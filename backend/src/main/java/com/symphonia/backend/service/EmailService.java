@@ -11,8 +11,8 @@ public class EmailService {
 
     private final JavaMailSender mailSender;
 
-    // Même origine que celle autorisée en CORS : c'est l'URL du frontend
-    @Value("${app.cors.origin}")
+    // URL publique du frontend utilisée dans le lien de validation
+    @Value("${app.frontend.url}")
     private String frontendUrl;
 
     public EmailService(JavaMailSender mailSender) {

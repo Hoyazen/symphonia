@@ -1,4 +1,5 @@
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8080";
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL
+  || (process.env.NODE_ENV === "development" ? "http://localhost:8080" : "");
 
 // Appelle l'API backend et transforme les erreurs métier en Error lisible
 async function callApi(path, options) {
