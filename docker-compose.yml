@@ -35,6 +35,11 @@ services:
     restart: unless-stopped
     env_file:
       - .env
+    # ATTENTION TRES GRAVE
+    # LA REDIRECTION DE PORT EST À DÉSACTIVER EN PRODUCTION
+    # PAR PITIÉ
+    # C'EST IMPORTANT SINON TOUT LE MONDE PEUT SE CONNECTER AU SECOURS
+    # VRAIMENT VRAIMENT VRAIMENT
     ports:
       - "5432:5432"
     volumes:
@@ -51,6 +56,11 @@ services:
     image: axllent/mailpit:latest
     container_name: symphonia-mailpit
     restart: unless-stopped
+    # ATTENTION TRES GRAVE
+    # LA REDIRECTION DE PORT EST À DÉSACTIVER EN PRODUCTION
+    # PAR PITIÉ
+    # C'EST IMPORTANT SINON TOUT LE MONDE PEUT SE CONNECTER AU SECOURS
+    # VRAIMENT VRAIMENT VRAIMENT  
     ports:
       - "1025:1025" # SMTP
       - "8025:8025" # Interface web
